@@ -19,6 +19,7 @@
       content="Track habits, goals, and personal growth with AI-powered insights and credits."
     />
     <meta property="og:locale" content="en_US" />
+    <meta property="og:image" content="https://reflecta.app/icon.jpg" />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
@@ -27,11 +28,12 @@
       name="twitter:description"
       content="Track habits, goals, and personal growth with AI-powered insights and credits."
     />
+    <meta name="twitter:image" content="https://reflecta.app/icon.jpg" />
 
     <title>Reflecta — Habits, goals, and personal growth</title>
 
-    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
-    <link rel="apple-touch-icon" href="favicon.svg" />
+    <link rel="icon" href="icon.jpg" type="image/jpeg" sizes="any" />
+    <link rel="apple-touch-icon" href="icon.jpg" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -153,15 +155,38 @@
       }
 
       .logo-mark {
+        flex-shrink: 0;
         width: 36px;
         height: 36px;
         border-radius: 11px;
-        background: linear-gradient(
-          145deg,
-          rgba(124, 156, 255, 0.95),
-          rgba(110, 231, 197, 0.75)
-        );
-        box-shadow: 0 8px 24px rgba(124, 156, 255, 0.25);
+        overflow: hidden;
+        box-shadow:
+          0 8px 28px rgba(66, 227, 255, 0.16),
+          0 8px 24px rgba(157, 80, 187, 0.12);
+      }
+
+      .logo-mark img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+
+      .hero-brand {
+        margin-bottom: 28px;
+        animation: fadeUp 0.72s var(--ease-out) both;
+      }
+
+      .hero-icon {
+        width: 80px;
+        height: 80px;
+        border-radius: 22px;
+        object-fit: cover;
+        vertical-align: middle;
+        border: 1px solid var(--border);
+        box-shadow:
+          0 24px 64px rgba(66, 227, 255, 0.12),
+          0 16px 48px rgba(0, 0, 0, 0.4);
       }
 
       nav {
@@ -582,7 +607,9 @@
     <div class="wrap">
       <header>
         <a class="logo" href="#" aria-label="Reflecta home">
-          <span class="logo-mark" aria-hidden="true"></span>
+          <span class="logo-mark" aria-hidden="true">
+            <img src="icon.jpg" alt="" width="36" height="36" decoding="async" />
+          </span>
           Reflecta
         </a>
         <nav aria-label="Primary">
@@ -595,6 +622,16 @@
 
       <main>
         <section class="hero" id="top" aria-labelledby="hero-title">
+          <div class="hero-brand">
+            <img
+              class="hero-icon"
+              src="icon.jpg"
+              alt=""
+              width="80"
+              height="80"
+              decoding="async"
+            />
+          </div>
           <div class="badge">
             <span class="badge-dot" aria-hidden="true"></span>
             Personal growth, clarified
