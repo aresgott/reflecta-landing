@@ -7,11 +7,10 @@
       name="description"
       content="Reflecta helps you track habits, goals, and personal growth with AI-powered insights and credits. Minimal, focused, made for progress."
     />
-    <meta name="theme-color" content="#9DE8F5" />
+    <meta name="theme-color" content="#ffffff" />
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href="https://reflecta.app/" />
 
-    <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Reflecta — Habits, goals, and growth" />
     <meta
@@ -21,7 +20,6 @@
     <meta property="og:locale" content="en_US" />
     <meta property="og:image" content="https://reflecta.app/icon.jpg" />
 
-    <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Reflecta — Habits, goals, and growth" />
     <meta
@@ -38,24 +36,31 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
 
     <style>
       :root {
-        --ink: #10131c;
-        --ink-soft: #3a4154;
-        --muted: #5c6578;
-        --line: rgba(16, 19, 28, 0.1);
-        --paper: #f3f7fb;
-        --paper-2: #eaf3f8;
-        --cyan: #2eb8d9;
-        --cyan-deep: #1490b0;
-        --violet: #6b4db8;
-        --surface: rgba(255, 255, 255, 0.72);
+        --ink: #111827;
+        --ink-soft: #374151;
+        --muted: #6b7280;
+        --line: #e5e7eb;
+        --soft: #f8fafc;
+        --white: #ffffff;
+        --cyan: #22c3e0;
+        --cyan-deep: #0ea5c4;
+        --violet: #7c5cfc;
+        --violet-deep: #5b3df0;
+        --grad: linear-gradient(135deg, #22c3e0 0%, #7c5cfc 100%);
+        --grad-soft: linear-gradient(135deg, rgba(34, 195, 224, 0.14), rgba(124, 92, 252, 0.14));
+        --shadow: 0 10px 30px rgba(17, 24, 39, 0.06);
+        --shadow-lg: 0 24px 60px rgba(17, 24, 39, 0.1);
+        --radius: 16px;
+        --radius-lg: 24px;
         --ease: cubic-bezier(0.22, 1, 0.36, 1);
-        --header-h: 72px;
+        --max: 1120px;
+        --header-h: 68px;
       }
 
       *,
@@ -70,18 +75,16 @@
 
       body {
         margin: 0;
-        font-family: "Figtree", sans-serif;
-        font-size: 17px;
-        line-height: 1.65;
+        font-family: "Plus Jakarta Sans", sans-serif;
         color: var(--ink);
-        background: var(--paper);
-        min-height: 100vh;
+        background: var(--white);
+        line-height: 1.6;
         -webkit-font-smoothing: antialiased;
         overflow-x: hidden;
       }
 
       a {
-        color: var(--cyan-deep);
+        color: var(--violet-deep);
         text-decoration: none;
       }
 
@@ -91,33 +94,35 @@
       }
 
       img {
-        max-width: 100%;
         display: block;
+        max-width: 100%;
       }
 
+      .wrap {
+        width: min(var(--max), calc(100% - 40px));
+        margin: 0 auto;
+      }
+
+      /* ——— Header ——— */
       .site-header {
-        position: fixed;
+        position: sticky;
         top: 0;
-        left: 0;
-        right: 0;
-        z-index: 40;
+        z-index: 50;
         height: var(--header-h);
-        display: flex;
-        align-items: center;
-        transition: background 0.35s var(--ease), box-shadow 0.35s var(--ease),
-          backdrop-filter 0.35s var(--ease);
+        background: rgba(255, 255, 255, 0.86);
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+        border-bottom: 1px solid transparent;
+        transition: border-color 0.3s var(--ease), box-shadow 0.3s var(--ease);
       }
 
       .site-header.is-scrolled {
-        background: rgba(243, 247, 251, 0.82);
-        backdrop-filter: blur(14px);
-        -webkit-backdrop-filter: blur(14px);
-        box-shadow: 0 1px 0 var(--line);
+        border-bottom-color: var(--line);
+        box-shadow: 0 1px 0 rgba(17, 24, 39, 0.03);
       }
 
       .site-header .inner {
-        width: min(1120px, calc(100% - 40px));
-        margin: 0 auto;
+        height: 100%;
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -128,17 +133,11 @@
         display: inline-flex;
         align-items: center;
         gap: 10px;
-        color: #fff;
-        text-decoration: none;
-        font-family: "Syne", sans-serif;
-        font-weight: 700;
+        color: var(--ink);
+        font-weight: 800;
         font-size: 1.05rem;
         letter-spacing: -0.03em;
-        transition: color 0.3s var(--ease);
-      }
-
-      .site-header.is-scrolled .logo {
-        color: var(--ink);
+        text-decoration: none;
       }
 
       .logo:hover {
@@ -146,9 +145,9 @@
       }
 
       .logo-mark {
-        width: 34px;
-        height: 34px;
-        border-radius: 10px;
+        width: 32px;
+        height: 32px;
+        border-radius: 9px;
         overflow: hidden;
         flex-shrink: 0;
       }
@@ -162,168 +161,20 @@
       .nav {
         display: flex;
         align-items: center;
-        gap: 4px;
-        flex-wrap: wrap;
-        justify-content: flex-end;
+        gap: 6px;
       }
 
       .nav a {
-        color: rgba(255, 255, 255, 0.82);
+        color: var(--ink-soft);
         font-size: 0.92rem;
         font-weight: 500;
         padding: 8px 12px;
         text-decoration: none;
-        transition: color 0.25s var(--ease);
       }
 
       .nav a:hover {
-        color: #fff;
-        text-decoration: none;
-      }
-
-      .site-header.is-scrolled .nav a {
-        color: var(--ink-soft);
-      }
-
-      .site-header.is-scrolled .nav a:hover {
         color: var(--ink);
-      }
-
-      .nav-cta {
-        margin-left: 6px;
-        padding: 9px 16px !important;
-        border-radius: 10px;
-        background: rgba(255, 255, 255, 0.95) !important;
-        color: var(--ink) !important;
-        font-weight: 600 !important;
-        transition: transform 0.25s var(--ease), background 0.25s var(--ease), color 0.25s var(--ease) !important;
-      }
-
-      .nav-cta:hover {
-        background: #fff !important;
-        transform: translateY(-1px);
-      }
-
-      .site-header.is-scrolled .nav-cta {
-        background: var(--ink) !important;
-        color: #fff !important;
-      }
-
-      .site-header.is-scrolled .nav-cta:hover {
-        background: #1c2233 !important;
-      }
-
-      /* ——— Hero: one full-bleed composition ——— */
-      .hero {
-        position: relative;
-        min-height: 100svh;
-        display: grid;
-        align-items: end;
-        color: #fff;
-        overflow: hidden;
-      }
-
-      .hero-plane {
-        position: absolute;
-        inset: 0;
-        background:
-          linear-gradient(
-            165deg,
-            rgba(8, 12, 24, 0.18) 0%,
-            rgba(8, 12, 24, 0.42) 55%,
-            rgba(8, 12, 24, 0.62) 100%
-          ),
-          linear-gradient(180deg, #8fe8f6 0%, #5bc4ef 28%, #7a6ad4 72%, #5a3fa8 100%);
-        background-size: 100% 100%, 100% 140%;
-        background-position: center, center top;
-        animation: planeDrift 18s ease-in-out infinite alternate;
-      }
-
-      .hero-plane::before {
-        content: "";
-        position: absolute;
-        inset: -20%;
-        background:
-          radial-gradient(ellipse 50% 40% at 20% 25%, rgba(255, 255, 255, 0.35), transparent 60%),
-          radial-gradient(ellipse 45% 35% at 80% 70%, rgba(180, 140, 255, 0.28), transparent 55%);
-        animation: washFloat 14s var(--ease) infinite alternate;
-        pointer-events: none;
-      }
-
-      .hero-plane::after {
-        content: "";
-        position: absolute;
-        inset: 0;
-        opacity: 0.07;
-        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-        pointer-events: none;
-      }
-
-      .hero-mark {
-        position: absolute;
-        right: max(-4vw, calc(50% - 560px));
-        top: 12%;
-        width: min(42vw, 420px);
-        aspect-ratio: 1;
-        border-radius: 28% 28% 36% 36%;
-        overflow: hidden;
-        box-shadow: 0 40px 100px rgba(16, 19, 28, 0.28);
-        animation: markRise 1.1s var(--ease) 0.15s both, markFloat 7s ease-in-out 1.3s infinite;
-        z-index: 1;
-      }
-
-      .hero-mark img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
-
-      .hero-content {
-        position: relative;
-        z-index: 2;
-        width: min(1120px, calc(100% - 40px));
-        margin: 0 auto;
-        padding: calc(var(--header-h) + 48px) 0 72px;
-        max-width: 640px;
-        margin-left: max(20px, calc(50% - 560px));
-      }
-
-      .brand-lockup {
-        font-family: "Syne", sans-serif;
-        font-weight: 800;
-        font-size: clamp(3.4rem, 10vw, 6.2rem);
-        letter-spacing: -0.055em;
-        line-height: 0.92;
-        margin: 0 0 22px;
-        animation: fadeUp 0.9s var(--ease) both;
-      }
-
-      .hero h1 {
-        margin: 0 0 16px;
-        font-family: "Syne", sans-serif;
-        font-weight: 700;
-        font-size: clamp(1.45rem, 3.2vw, 2rem);
-        letter-spacing: -0.03em;
-        line-height: 1.25;
-        max-width: 16ch;
-        color: rgba(255, 255, 255, 0.96);
-        animation: fadeUp 0.95s var(--ease) 0.08s both;
-      }
-
-      .hero-lead {
-        margin: 0 0 32px;
-        font-size: 1.08rem;
-        line-height: 1.55;
-        color: rgba(255, 255, 255, 0.82);
-        max-width: 34ch;
-        animation: fadeUp 1s var(--ease) 0.14s both;
-      }
-
-      .hero-actions {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 12px;
-        animation: fadeUp 1.05s var(--ease) 0.2s both;
+        text-decoration: none;
       }
 
       .btn {
@@ -331,286 +182,760 @@
         align-items: center;
         justify-content: center;
         gap: 8px;
-        padding: 14px 22px;
-        border-radius: 12px;
-        font-family: inherit;
-        font-weight: 600;
-        font-size: 0.95rem;
-        border: 1px solid transparent;
+        border: none;
         cursor: pointer;
+        font-family: inherit;
+        font-weight: 700;
+        font-size: 0.95rem;
         text-decoration: none;
-        transition: transform 0.25s var(--ease), background 0.25s var(--ease),
-          border-color 0.25s var(--ease), color 0.25s var(--ease);
+        transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease),
+          background 0.25s var(--ease);
       }
 
       .btn:hover {
         text-decoration: none;
       }
 
-      .btn-light {
-        background: #fff;
-        color: var(--ink);
-      }
-
-      .btn-light:hover {
-        transform: translateY(-2px);
-        background: #f4fbff;
-      }
-
-      .btn-ghost-light {
-        background: rgba(255, 255, 255, 0.12);
-        border-color: rgba(255, 255, 255, 0.35);
+      .btn-primary {
+        background: var(--grad);
         color: #fff;
-        backdrop-filter: blur(8px);
+        padding: 12px 20px;
+        border-radius: 999px;
+        box-shadow: 0 10px 28px rgba(124, 92, 252, 0.28);
       }
 
-      .btn-ghost-light:hover {
-        background: rgba(255, 255, 255, 0.2);
-        transform: translateY(-2px);
+      .btn-primary:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 14px 34px rgba(124, 92, 252, 0.34);
+      }
+
+      .btn-primary.lg {
+        padding: 16px 28px;
+        font-size: 1.02rem;
       }
 
       .btn-dark {
         background: var(--ink);
         color: #fff;
+        padding: 12px 18px;
+        border-radius: 12px;
       }
 
       .btn-dark:hover {
-        transform: translateY(-2px);
-        background: #1c2233;
+        transform: translateY(-1px);
       }
 
       .btn-outline {
-        background: transparent;
-        border-color: var(--line);
+        background: var(--white);
         color: var(--ink);
+        border: 1px solid var(--line);
+        padding: 12px 18px;
+        border-radius: 12px;
       }
 
-      .btn-outline:hover {
-        border-color: rgba(16, 19, 28, 0.28);
-        background: rgba(255, 255, 255, 0.5);
+      .btn-ghost-nav {
+        padding: 10px 18px !important;
+        border-radius: 999px;
+        background: var(--grad);
+        color: #fff !important;
+        font-weight: 700 !important;
+        box-shadow: 0 8px 22px rgba(124, 92, 252, 0.22);
       }
 
-      .scroll-hint {
+      .btn-ghost-nav:hover {
+        transform: translateY(-1px);
+      }
+
+      /* ——— Hero ——— */
+      .hero {
+        position: relative;
+        padding: 56px 0 40px;
+        text-align: center;
+        overflow: hidden;
+      }
+
+      .hero-blobs {
         position: absolute;
-        left: 50%;
-        bottom: 22px;
-        transform: translateX(-50%);
-        z-index: 2;
-        display: flex;
-        flex-direction: column;
+        inset: -10% -5% auto;
+        height: 70%;
+        pointer-events: none;
+        z-index: 0;
+      }
+
+      .hero-blobs span {
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(60px);
+        opacity: 0.55;
+        animation: blobFloat 12s ease-in-out infinite alternate;
+      }
+
+      .hero-blobs .b1 {
+        width: 420px;
+        height: 420px;
+        left: 8%;
+        top: 0;
+        background: rgba(34, 195, 224, 0.35);
+      }
+
+      .hero-blobs .b2 {
+        width: 480px;
+        height: 480px;
+        right: 5%;
+        top: 10%;
+        background: rgba(124, 92, 252, 0.32);
+        animation-delay: -4s;
+      }
+
+      .hero-blobs .b3 {
+        width: 280px;
+        height: 280px;
+        left: 42%;
+        top: 30%;
+        background: rgba(99, 180, 255, 0.25);
+        animation-delay: -7s;
+      }
+
+      .hero-inner {
+        position: relative;
+        z-index: 1;
+      }
+
+      .eyebrow {
+        display: inline-flex;
         align-items: center;
         gap: 8px;
-        color: rgba(255, 255, 255, 0.7);
-        font-size: 0.72rem;
-        letter-spacing: 0.14em;
-        text-transform: uppercase;
-        animation: fadeUp 1.2s var(--ease) 0.5s both;
+        padding: 8px 14px;
+        border-radius: 999px;
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.75);
+        color: var(--violet-deep);
+        font-size: 0.82rem;
+        font-weight: 600;
+        margin-bottom: 22px;
+        animation: fadeUp 0.7s var(--ease) both;
+      }
+
+      .eyebrow .dot {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: var(--grad);
+      }
+
+      .hero h1 {
+        margin: 0 auto 18px;
+        max-width: 16ch;
+        font-size: clamp(2.4rem, 5.6vw, 3.85rem);
+        font-weight: 800;
+        letter-spacing: -0.045em;
+        line-height: 1.08;
+        color: var(--ink);
+        animation: fadeUp 0.8s var(--ease) 0.05s both;
+      }
+
+      .hero h1 .accent {
+        background: var(--grad);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+
+      .hero-lead {
+        margin: 0 auto 28px;
+        max-width: 52ch;
+        color: var(--muted);
+        font-size: 1.08rem;
+        line-height: 1.65;
+        animation: fadeUp 0.85s var(--ease) 0.1s both;
+      }
+
+      .hero-cta {
+        animation: fadeUp 0.9s var(--ease) 0.15s both;
+        margin-bottom: 48px;
+      }
+
+      /* Network proof */
+      .proof {
+        position: relative;
+        max-width: 920px;
+        margin: 0 auto;
+        min-height: 420px;
+        animation: fadeUp 1s var(--ease) 0.2s both;
+      }
+
+      .proof-rail {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 12px;
+        max-width: 720px;
+        margin: 0 auto 28px;
+        position: relative;
+        z-index: 2;
+      }
+
+      .cap {
+        width: 52px;
+        height: 52px;
+        border-radius: 14px;
+        background: var(--white);
+        border: 1px solid var(--line);
+        box-shadow: var(--shadow);
+        display: grid;
+        place-items: center;
+        color: var(--violet-deep);
+        transition: transform 0.35s var(--ease);
+      }
+
+      .cap svg {
+        width: 24px;
+        height: 24px;
+      }
+
+      .cap:nth-child(odd) {
+        animation: bob 5s ease-in-out infinite;
+      }
+
+      .cap:nth-child(even) {
+        animation: bob 5.5s ease-in-out infinite reverse;
+      }
+
+      .proof-lines {
+        position: absolute;
+        inset: 40px 8% 180px;
         pointer-events: none;
+        z-index: 0;
       }
 
-      .scroll-hint span {
-        width: 1px;
-        height: 36px;
-        background: linear-gradient(180deg, rgba(255, 255, 255, 0.8), transparent);
-        animation: scrollLine 2.2s ease-in-out infinite;
-        transform-origin: top;
+      .proof-lines svg {
+        width: 100%;
+        height: 100%;
+        overflow: visible;
       }
 
-      /* ——— Page body ——— */
-      .wrap {
-        width: min(1120px, calc(100% - 40px));
+      .proof-lines path {
+        fill: none;
+        stroke: rgba(124, 92, 252, 0.22);
+        stroke-width: 1.5;
+      }
+
+      .proof-lines circle {
+        fill: var(--violet);
+      }
+
+      .feed {
+        position: relative;
+        z-index: 2;
+        display: grid;
+        gap: 12px;
+        max-width: 440px;
         margin: 0 auto;
       }
 
+      .feed-card {
+        text-align: left;
+        background: var(--white);
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        padding: 16px 16px 14px;
+        box-shadow: var(--shadow-lg);
+        opacity: 0;
+        transform: translateY(12px) scale(0.98);
+        transition: opacity 0.55s var(--ease), transform 0.55s var(--ease);
+      }
+
+      .feed-card.is-on {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+
+      .feed-card.is-dim {
+        opacity: 0.45;
+        transform: scale(0.98);
+      }
+
+      .feed-top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        margin-bottom: 10px;
+      }
+
+      .feed-user {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        min-width: 0;
+      }
+
+      .avatar {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        background: var(--grad-soft);
+        display: grid;
+        place-items: center;
+        font-size: 0.78rem;
+        font-weight: 800;
+        color: var(--violet-deep);
+        flex-shrink: 0;
+      }
+
+      .feed-user strong {
+        display: block;
+        font-size: 0.9rem;
+        letter-spacing: -0.01em;
+      }
+
+      .feed-user span {
+        display: block;
+        font-size: 0.75rem;
+        color: var(--muted);
+      }
+
+      .tag {
+        font-size: 0.72rem;
+        font-weight: 700;
+        padding: 4px 9px;
+        border-radius: 999px;
+        white-space: nowrap;
+      }
+
+      .tag-mint {
+        background: #dffaf0;
+        color: #0f766e;
+      }
+
+      .tag-sky {
+        background: #e0f5ff;
+        color: #0369a1;
+      }
+
+      .tag-violet {
+        background: #eee8ff;
+        color: #5b21b6;
+      }
+
+      .tag-amber {
+        background: #fff4d6;
+        color: #b45309;
+      }
+
+      .feed-card p {
+        margin: 0;
+        color: var(--ink-soft);
+        font-size: 0.92rem;
+        line-height: 1.5;
+      }
+
+      .feed-meta {
+        display: flex;
+        gap: 14px;
+        margin-top: 12px;
+        font-size: 0.75rem;
+        color: var(--muted);
+        font-weight: 600;
+      }
+
+      /* ——— Sections ——— */
       section {
         padding: 96px 0;
-        scroll-margin-top: calc(var(--header-h) + 16px);
+        scroll-margin-top: calc(var(--header-h) + 12px);
       }
 
-      .section-kicker {
-        font-family: "Syne", sans-serif;
-        font-size: 0.78rem;
+      .section-label {
+        display: block;
+        text-align: center;
+        font-size: 0.75rem;
         font-weight: 700;
-        letter-spacing: 0.16em;
+        letter-spacing: 0.14em;
         text-transform: uppercase;
-        color: var(--cyan-deep);
-        margin: 0 0 14px;
+        color: var(--muted);
+        margin-bottom: 14px;
       }
 
-      h2 {
-        margin: 0 0 14px;
-        font-family: "Syne", sans-serif;
-        font-weight: 700;
-        font-size: clamp(1.85rem, 3.5vw, 2.55rem);
+      .section-title {
+        margin: 0 auto 14px;
+        text-align: center;
+        max-width: 18ch;
+        font-size: clamp(1.85rem, 3.6vw, 2.6rem);
+        font-weight: 800;
         letter-spacing: -0.035em;
         line-height: 1.15;
-        color: var(--ink);
       }
 
-      .section-intro {
-        margin: 0 0 48px;
-        max-width: 42ch;
+      .section-lead {
+        margin: 0 auto 48px;
+        text-align: center;
+        max-width: 52ch;
         color: var(--muted);
         font-size: 1.05rem;
       }
 
-      /* Features: editorial rows, not cards */
-      .feature-list {
+      /* Pipeline */
+      .pipeline {
+        background:
+          radial-gradient(600px 240px at 50% 0%, rgba(124, 92, 252, 0.08), transparent 70%),
+          var(--white);
+      }
+
+      .steps {
         display: grid;
-        gap: 0;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 16px;
+      }
+
+      .step {
+        background: var(--white);
+        border: 1px solid var(--line);
+        border-radius: var(--radius-lg);
+        padding: 22px;
+        box-shadow: var(--shadow);
+        transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
+      }
+
+      .step:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-lg);
+      }
+
+      .step-head {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 12px;
+      }
+
+      .step-num {
+        width: 34px;
+        height: 34px;
+        border-radius: 50%;
+        background: var(--grad);
+        color: #fff;
+        display: grid;
+        place-items: center;
+        font-size: 0.78rem;
+        font-weight: 800;
+        flex-shrink: 0;
+      }
+
+      .step h3 {
+        margin: 0;
+        font-size: 1.1rem;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+      }
+
+      .step > p {
+        margin: 0 0 16px;
+        color: var(--muted);
+        font-size: 0.92rem;
+      }
+
+      .step-panel {
         border-top: 1px solid var(--line);
+        padding-top: 12px;
+        display: grid;
+        gap: 8px;
+      }
+
+      .step-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+        font-size: 0.8rem;
+      }
+
+      .step-row span {
+        color: var(--muted);
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        font-size: 0.68rem;
+      }
+
+      .step-row strong {
+        font-weight: 700;
+        color: var(--ink);
+      }
+
+      .step-row .up {
+        color: #059669;
+      }
+
+      /* Showcase */
+      .showcase {
+        background: linear-gradient(180deg, #0b1020 0%, #1a1440 55%, #0f172a 100%);
+        color: #fff;
+        border-radius: 0;
+      }
+
+      .showcase .section-label {
+        color: rgba(255, 255, 255, 0.55);
+      }
+
+      .showcase .section-title {
+        color: #fff;
+        max-width: 20ch;
+      }
+
+      .showcase .section-lead {
+        color: rgba(255, 255, 255, 0.68);
+      }
+
+      .showcase-stage {
+        position: relative;
+        max-width: 860px;
+        margin: 0 auto;
+        border-radius: 28px;
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        background:
+          radial-gradient(500px 280px at 20% 20%, rgba(34, 195, 224, 0.35), transparent 60%),
+          radial-gradient(500px 280px at 80% 70%, rgba(124, 92, 252, 0.4), transparent 55%),
+          rgba(255, 255, 255, 0.03);
+        min-height: 360px;
+        display: grid;
+        place-items: center;
+        padding: 48px 24px;
+      }
+
+      .showcase-mark {
+        width: min(180px, 40vw);
+        aspect-ratio: 1;
+        border-radius: 32%;
+        overflow: hidden;
+        box-shadow: 0 30px 80px rgba(0, 0, 0, 0.35);
+        animation: bob 6s ease-in-out infinite;
+      }
+
+      .showcase-mark img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .showcase-chips {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+      }
+
+      .chip {
+        position: absolute;
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        backdrop-filter: blur(8px);
+        color: #fff;
+        font-size: 0.82rem;
+        font-weight: 600;
+        padding: 10px 14px;
+        border-radius: 999px;
+        animation: bob 5s ease-in-out infinite;
+      }
+
+      .chip-1 {
+        top: 18%;
+        left: 8%;
+      }
+
+      .chip-2 {
+        top: 28%;
+        right: 10%;
+        animation-delay: -1.5s;
+      }
+
+      .chip-3 {
+        bottom: 22%;
+        left: 14%;
+        animation-delay: -2.5s;
+      }
+
+      .chip-4 {
+        bottom: 18%;
+        right: 12%;
+        animation-delay: -3.5s;
+      }
+
+      /* Features */
+      .features-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 18px;
       }
 
       .feature {
-        display: grid;
-        grid-template-columns: 72px 1fr;
-        gap: 20px 28px;
-        align-items: start;
-        padding: 28px 0;
-        border-bottom: 1px solid var(--line);
-        transition: background 0.35s var(--ease), padding 0.35s var(--ease);
+        background: var(--white);
+        border: 1px solid var(--line);
+        border-radius: var(--radius-lg);
+        padding: 26px;
+        box-shadow: var(--shadow);
+        transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
       }
 
       .feature:hover {
-        background: linear-gradient(
-          90deg,
-          rgba(46, 184, 217, 0.06),
-          transparent 70%
-        );
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-lg);
       }
 
-      .feature-index {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
-        padding-top: 4px;
-        color: var(--cyan-deep);
+      .feature-icon {
+        width: 44px;
+        height: 44px;
+        border-radius: 12px;
+        background: var(--grad-soft);
+        color: var(--violet-deep);
+        display: grid;
+        place-items: center;
+        margin-bottom: 16px;
       }
 
-      .feature-num {
-        font-family: "Syne", sans-serif;
-        font-weight: 700;
-        font-size: 0.9rem;
-        letter-spacing: 0.04em;
-      }
-
-      .feature-glyph {
-        width: 32px;
-        height: 32px;
-        opacity: 0.9;
+      .feature-icon svg {
+        width: 22px;
+        height: 22px;
       }
 
       .feature h3 {
         margin: 0 0 8px;
-        font-family: "Syne", sans-serif;
-        font-size: 1.25rem;
-        font-weight: 700;
-        letter-spacing: -0.025em;
+        font-size: 1.2rem;
+        font-weight: 800;
+        letter-spacing: -0.02em;
       }
 
-      .feature p {
+      .feature > p {
+        margin: 0 0 18px;
+        color: var(--muted);
+        font-size: 0.95rem;
+      }
+
+      .mini-bars {
+        display: grid;
+        gap: 8px;
+      }
+
+      .mini-bar {
+        display: grid;
+        grid-template-columns: 70px 1fr 36px;
+        gap: 8px;
+        align-items: center;
+        font-size: 0.75rem;
+        color: var(--muted);
+        font-weight: 600;
+      }
+
+      .mini-bar i {
+        display: block;
+        height: 7px;
+        border-radius: 999px;
+        background: #eef2ff;
+        overflow: hidden;
+      }
+
+      .mini-bar i b {
+        display: block;
+        height: 100%;
+        border-radius: inherit;
+        background: var(--grad);
+      }
+
+      .streak-row {
+        display: flex;
+        gap: 6px;
+      }
+
+      .streak-row span {
+        flex: 1;
+        height: 28px;
+        border-radius: 8px;
+        background: #eef2ff;
+      }
+
+      .streak-row span.on {
+        background: var(--grad);
+      }
+
+      /* Use cases */
+      .cases {
+        background: var(--soft);
+      }
+
+      .cases-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+      }
+
+      .case {
+        background: var(--white);
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        padding: 24px;
+        transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
+      }
+
+      .case:hover {
+        transform: translateY(-3px);
+        box-shadow: var(--shadow);
+      }
+
+      .case-kicker {
+        display: inline-block;
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--violet-deep);
+        margin-bottom: 10px;
+      }
+
+      .case h3 {
+        margin: 0 0 8px;
+        font-size: 1.08rem;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+      }
+
+      .case p {
         margin: 0;
         color: var(--muted);
-        max-width: 52ch;
-      }
-
-      .feature-visual {
-        grid-column: 1 / -1;
-        height: 4px;
-        border-radius: 999px;
-        background: linear-gradient(90deg, var(--cyan), transparent 65%);
-        opacity: 0;
-        transform: scaleX(0.4);
-        transform-origin: left;
-        transition: opacity 0.4s var(--ease), transform 0.5s var(--ease);
-        margin-top: -8px;
-      }
-
-      .feature:hover .feature-visual {
-        opacity: 1;
-        transform: scaleX(1);
-      }
-
-      /* How it feels strip */
-      .atmosphere {
-        position: relative;
-        border-radius: 28px;
-        overflow: hidden;
-        min-height: 280px;
-        display: grid;
-        align-items: end;
-        color: #fff;
-        isolation: isolate;
-      }
-
-      .atmosphere-bg {
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(135deg, #7ad7ea 0%, #6a8adf 48%, #6b4db8 100%);
-        z-index: -1;
-      }
-
-      .atmosphere-bg::after {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background:
-          radial-gradient(circle at 15% 20%, rgba(255, 255, 255, 0.35), transparent 40%),
-          radial-gradient(circle at 85% 80%, rgba(255, 255, 255, 0.12), transparent 35%);
-        animation: washFloat 10s ease-in-out infinite alternate;
-      }
-
-      .atmosphere-copy {
-        padding: 40px clamp(24px, 4vw, 48px);
-        max-width: 420px;
-      }
-
-      .atmosphere-copy p {
-        margin: 10px 0 0;
-        color: rgba(255, 255, 255, 0.85);
-      }
-
-      .atmosphere-copy h2 {
-        color: #fff;
-        margin: 0;
+        font-size: 0.92rem;
       }
 
       /* Support */
-      .support-block {
+      .support-grid {
         display: grid;
-        grid-template-columns: minmax(0, 1.15fr) minmax(260px, 0.85fr);
-        gap: 40px;
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 32px;
         align-items: start;
       }
 
-      .support-block h2 {
+      .support-grid .section-label,
+      .support-grid .section-title,
+      .support-grid .section-lead {
+        text-align: left;
+        margin-left: 0;
+      }
+
+      .support-grid .section-title {
         max-width: 14ch;
-        line-height: 1.2;
-        margin-bottom: 18px;
-        text-wrap: balance;
       }
 
-      .support-block .section-intro {
-        margin-bottom: 0;
-        max-width: 38ch;
-      }
-
-      .support-action {
-        display: flex;
-        flex-direction: column;
-        gap: 14px;
-        padding: 28px;
-        border-radius: 20px;
-        background: var(--surface);
+      .support-panel {
+        background: var(--white);
         border: 1px solid var(--line);
-        backdrop-filter: blur(10px);
+        border-radius: var(--radius-lg);
+        padding: 24px;
+        box-shadow: var(--shadow);
+        display: grid;
+        gap: 14px;
       }
 
-      .support-action label {
-        font-size: 0.8rem;
-        font-weight: 600;
-        letter-spacing: 0.06em;
+      .support-panel label {
+        font-size: 0.75rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
         text-transform: uppercase;
         color: var(--muted);
       }
@@ -631,27 +956,48 @@
         min-width: 0;
       }
 
-      /* Legal */
-      .legal-stack {
+      /* FAQ / Legal */
+      .faq-grid {
         display: grid;
-        gap: 14px;
+        grid-template-columns: 1fr 1fr;
+        gap: 28px 40px;
+      }
+
+      .faq-item h3 {
+        margin: 0 0 8px;
+        font-size: 1.05rem;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+      }
+
+      .faq-item p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.95rem;
+      }
+
+      .legal-stack {
+        margin-top: 40px;
+        display: grid;
+        gap: 10px;
       }
 
       .legal {
-        border-bottom: 1px solid var(--line);
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        background: var(--white);
+        overflow: hidden;
       }
 
       .legal summary {
         list-style: none;
         cursor: pointer;
-        padding: 22px 4px;
+        padding: 18px 20px;
         display: flex;
-        align-items: center;
         justify-content: space-between;
-        gap: 16px;
-        font-family: "Syne", sans-serif;
-        font-weight: 700;
-        font-size: 1.15rem;
+        align-items: center;
+        gap: 12px;
+        font-weight: 800;
         letter-spacing: -0.02em;
       }
 
@@ -667,27 +1013,25 @@
         display: grid;
         place-items: center;
         color: var(--muted);
-        transition: transform 0.35s var(--ease), background 0.35s var(--ease);
-        flex-shrink: 0;
+        transition: transform 0.3s var(--ease);
       }
 
       .legal[open] summary .chev {
         transform: rotate(90deg);
-        background: rgba(46, 184, 217, 0.1);
-        color: var(--cyan-deep);
+        color: var(--violet-deep);
       }
 
       .legal-body {
-        padding: 0 4px 28px;
+        padding: 0 20px 20px;
         color: var(--muted);
-        font-size: 0.95rem;
+        font-size: 0.92rem;
+        border-top: 1px solid var(--line);
       }
 
       .legal-body h3 {
-        margin: 20px 0 8px;
-        font-family: "Syne", sans-serif;
-        font-size: 1rem;
+        margin: 18px 0 8px;
         color: var(--ink);
+        font-size: 0.95rem;
       }
 
       .legal-body p,
@@ -699,229 +1043,200 @@
         padding-left: 1.2em;
       }
 
+      /* Final CTA */
+      .final {
+        padding-top: 40px;
+      }
+
+      .final-card {
+        border-radius: 32px;
+        padding: clamp(40px, 6vw, 72px) 28px;
+        text-align: center;
+        background:
+          radial-gradient(500px 220px at 20% 20%, rgba(34, 195, 224, 0.18), transparent 60%),
+          radial-gradient(500px 220px at 80% 80%, rgba(124, 92, 252, 0.2), transparent 55%),
+          #f4f1ff;
+        border: 1px solid #e7e0ff;
+      }
+
+      .final-card h2 {
+        margin: 0 auto 12px;
+        max-width: 16ch;
+        font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+        font-weight: 800;
+        letter-spacing: -0.035em;
+        line-height: 1.15;
+      }
+
+      .final-card p {
+        margin: 0 auto 28px;
+        max-width: 42ch;
+        color: var(--muted);
+      }
+
       /* Footer */
       footer {
-        padding: 56px 0 40px;
+        padding: 40px 0 48px;
         border-top: 1px solid var(--line);
       }
 
       .footer-grid {
         display: flex;
         flex-wrap: wrap;
-        gap: 28px;
+        gap: 20px;
         justify-content: space-between;
         align-items: flex-start;
       }
 
       .footer-brand .name {
-        font-family: "Syne", sans-serif;
-        font-weight: 700;
-        font-size: 1.2rem;
+        font-weight: 800;
         letter-spacing: -0.03em;
-        margin-bottom: 8px;
+        margin-bottom: 6px;
       }
 
       .footer-brand p {
         margin: 0;
         color: var(--muted);
         max-width: 28ch;
-        font-size: 0.95rem;
+        font-size: 0.92rem;
       }
 
       .footer-links {
         display: flex;
         flex-wrap: wrap;
-        gap: 8px 18px;
+        gap: 8px 16px;
       }
 
       .footer-links a {
         color: var(--ink-soft);
         font-weight: 500;
-        font-size: 0.92rem;
-      }
-
-      .footer-links a:hover {
-        color: var(--ink);
+        font-size: 0.9rem;
       }
 
       .footer-meta {
         width: 100%;
-        margin: 28px 0 0;
-        font-size: 0.82rem;
-        color: #8a92a3;
+        margin: 20px 0 0;
+        font-size: 0.8rem;
+        color: #9ca3af;
       }
 
       /* Reveal */
       .reveal {
         opacity: 0;
-        transform: translateY(24px);
-        transition: opacity 0.75s var(--ease), transform 0.75s var(--ease);
+        transform: translateY(22px);
+        transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
       }
 
       .reveal.is-visible {
         opacity: 1;
-        transform: translateY(0);
-      }
-
-      .reveal-delay-1 {
-        transition-delay: 0.08s;
-      }
-
-      .reveal-delay-2 {
-        transition-delay: 0.16s;
-      }
-
-      .reveal-delay-3 {
-        transition-delay: 0.24s;
+        transform: none;
       }
 
       @keyframes fadeUp {
         from {
           opacity: 0;
-          transform: translateY(20px);
+          transform: translateY(16px);
         }
         to {
           opacity: 1;
-          transform: translateY(0);
+          transform: none;
         }
       }
 
-      @keyframes markRise {
-        from {
-          opacity: 0;
-          transform: translateY(28px) scale(0.94);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0) scale(1);
-        }
-      }
-
-      @keyframes markFloat {
+      @keyframes bob {
         0%,
         100% {
           transform: translateY(0);
         }
         50% {
-          transform: translateY(-12px);
+          transform: translateY(-8px);
         }
       }
 
-      @keyframes planeDrift {
-        from {
-          background-position: center, center top;
-        }
-        to {
-          background-position: center, center 18%;
-        }
-      }
-
-      @keyframes washFloat {
+      @keyframes blobFloat {
         from {
           transform: translate3d(0, 0, 0) scale(1);
         }
         to {
-          transform: translate3d(2%, -2%, 0) scale(1.05);
+          transform: translate3d(2%, 3%, 0) scale(1.08);
         }
       }
 
-      @keyframes scrollLine {
-        0%,
-        100% {
-          transform: scaleY(0.35);
-          opacity: 0.4;
-        }
-        50% {
-          transform: scaleY(1);
-          opacity: 1;
-        }
-      }
-
-      @media (max-width: 900px) {
-        .hero-mark {
-          width: min(46vw, 280px);
-          top: 14%;
-          right: 4%;
-          opacity: 0.95;
+      @media (max-width: 960px) {
+        .steps,
+        .features-grid,
+        .cases-grid {
+          grid-template-columns: 1fr 1fr;
         }
 
-        .hero-content {
+        .support-grid,
+        .faq-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .support-grid .section-label,
+        .support-grid .section-title,
+        .support-grid .section-lead {
+          text-align: center;
           margin-left: auto;
           margin-right: auto;
-          max-width: min(1120px, calc(100% - 40px));
-          padding-bottom: 88px;
         }
 
-        .support-block {
-          grid-template-columns: 1fr;
-          gap: 28px;
+        .chip {
+          display: none;
         }
       }
 
-      @media (max-width: 640px) {
+      @media (max-width: 720px) {
         :root {
-          --header-h: 64px;
-        }
-
-        .site-header .inner {
-          width: calc(100% - 28px);
-        }
-
-        .nav a:not(.nav-cta) {
-          display: none;
+          --header-h: 62px;
         }
 
         .wrap {
           width: calc(100% - 28px);
         }
 
+        .nav a:not(.btn-ghost-nav) {
+          display: none;
+        }
+
         .hero {
-          align-items: start;
+          padding-top: 36px;
         }
 
-        .hero-mark {
-          position: relative;
-          right: auto;
-          top: auto;
-          width: 112px;
-          margin: calc(var(--header-h) + 28px) 0 0 14px;
-          border-radius: 28%;
-          animation: markRise 1s var(--ease) 0.1s both;
-          box-shadow: 0 24px 60px rgba(16, 19, 28, 0.25);
+        .proof {
+          min-height: 0;
         }
 
-        .hero-content {
-          width: calc(100% - 28px);
-          margin: 0 auto;
-          padding-top: 22px;
-          padding-bottom: 56px;
-          max-width: none;
+        .proof-rail {
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          gap: 10px;
+          max-width: 320px;
         }
 
-        .brand-lockup {
-          font-size: clamp(3rem, 14vw, 4.2rem);
+        .cap {
+          width: 100%;
+          aspect-ratio: 1;
+          height: auto;
         }
 
-        .hero h1 {
-          max-width: none;
+        .proof-lines {
+          display: none;
+        }
+
+        .steps,
+        .features-grid,
+        .cases-grid {
+          grid-template-columns: 1fr;
         }
 
         section {
           padding: 72px 0;
         }
 
-        .feature {
-          grid-template-columns: 48px 1fr;
-          gap: 12px 16px;
-          padding: 22px 0;
-        }
-
-        .atmosphere-copy {
-          padding: 32px 24px;
-        }
-
-        .scroll-hint {
-          display: none;
+        .showcase-stage {
+          min-height: 280px;
         }
       }
 
@@ -930,18 +1245,15 @@
           scroll-behavior: auto;
         }
 
-        .brand-lockup,
+        .eyebrow,
         .hero h1,
         .hero-lead,
-        .hero-actions,
-        .scroll-hint,
-        .hero-mark {
-          animation: none !important;
-        }
-
-        .hero-plane,
-        .hero-plane::before,
-        .atmosphere-bg::after {
+        .hero-cta,
+        .proof,
+        .cap,
+        .showcase-mark,
+        .chip,
+        .hero-blobs span {
           animation: none !important;
         }
 
@@ -951,10 +1263,10 @@
           transition: none;
         }
 
-        .btn-light:hover,
-        .btn-ghost-light:hover,
-        .btn-dark:hover,
-        .nav-cta:hover {
+        .btn-primary:hover,
+        .step:hover,
+        .feature:hover,
+        .case:hover {
           transform: none;
         }
       }
@@ -962,164 +1274,328 @@
   </head>
   <body>
     <header class="site-header" id="site-header">
-      <div class="inner">
+      <div class="wrap inner">
         <a class="logo" href="#top" aria-label="Reflecta home">
           <span class="logo-mark" aria-hidden="true">
-            <img src="icon.jpg" alt="" width="34" height="34" decoding="async" />
+            <img src="icon.jpg" alt="" width="32" height="32" decoding="async" />
           </span>
           Reflecta
         </a>
         <nav class="nav" aria-label="Primary">
+          <a href="#how">How it works</a>
           <a href="#features">Features</a>
+          <a href="#cases">Use cases</a>
           <a href="#support">Support</a>
-          <a href="#privacy">Privacy</a>
-          <a href="#terms">Terms</a>
-          <a class="nav-cta" href="#support">Get support</a>
+          <a class="btn-ghost-nav" href="#support">Get support →</a>
         </nav>
       </div>
     </header>
 
     <main>
-      <section class="hero" id="top" aria-labelledby="brand-title">
-        <div class="hero-plane" aria-hidden="true"></div>
-        <div class="hero-mark" aria-hidden="true">
-          <img
-            src="icon.jpg"
-            alt=""
-            width="420"
-            height="420"
-            decoding="async"
-            fetchpriority="high"
-          />
+      <!-- HERO: SoTrace-style centered composition + live product proof -->
+      <section class="hero" id="top" aria-labelledby="hero-title">
+        <div class="hero-blobs" aria-hidden="true">
+          <span class="b1"></span>
+          <span class="b2"></span>
+          <span class="b3"></span>
         </div>
-        <div class="hero-content">
-          <p class="brand-lockup" id="brand-title">Reflecta</p>
-          <h1>Build better habits with calm, intelligent guidance.</h1>
-          <p class="hero-lead">
-            Track habits, goals, and personal growth with AI-powered insights and
-            credits.
-          </p>
-          <div class="hero-actions">
-            <a class="btn btn-light" href="#features">Explore features</a>
-            <a class="btn btn-ghost-light" href="#support">Get support</a>
+        <div class="wrap hero-inner">
+          <div class="eyebrow">
+            <span class="dot" aria-hidden="true"></span>
+            Habits. Goals. Clarity.
           </div>
-        </div>
-        <div class="scroll-hint" aria-hidden="true">
-          Scroll
-          <span></span>
+          <h1 id="hero-title">
+            Build better habits with
+            <span class="accent">calm</span>, intelligent guidance.
+          </h1>
+          <p class="hero-lead">
+            Reflecta helps you track habits, goals, and personal growth with AI-powered
+            insights and credits—so progress stays clear, not noisy.
+          </p>
+          <div class="hero-cta">
+            <a class="btn btn-primary lg" href="#how">See how it works →</a>
+          </div>
+
+          <div class="proof" aria-label="Reflecta in action">
+            <div class="proof-rail" aria-hidden="true">
+              <div class="cap" title="Habits">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3" fill="currentColor" stroke="none"/></svg>
+              </div>
+              <div class="cap" title="Goals">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 18l5-8 4 5 5-9" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <div class="cap" title="AI insights">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l1.6 5.4L19 9l-5.4 1.6L12 16l-1.6-5.4L5 9l5.4-1.6L12 2z"/></svg>
+              </div>
+              <div class="cap" title="Credits">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="7" width="16" height="12" rx="3"/><path d="M8 7V6a4 4 0 0 1 8 0v1" stroke-linecap="round"/></svg>
+              </div>
+              <div class="cap" title="Streaks">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M8 14c0-4 3-6 4-9 3 3 6 5 6 9a6 6 0 1 1-12 0z" stroke-linejoin="round"/></svg>
+              </div>
+              <div class="cap" title="Reflection">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12c3-6 11-6 14 0-3 6-11 6-14 0z"/><circle cx="12" cy="12" r="2.2" fill="currentColor" stroke="none"/></svg>
+              </div>
+              <div class="cap" title="Focus">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/></svg>
+              </div>
+              <div class="cap" title="Progress">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 16V8m7 8V5m7 11v-6" stroke-linecap="round"/></svg>
+              </div>
+            </div>
+
+            <div class="proof-lines" aria-hidden="true">
+              <svg viewBox="0 0 800 220" preserveAspectRatio="none">
+                <path d="M80 10 C 120 90, 280 40, 400 120" />
+                <path d="M200 10 C 240 70, 320 50, 400 120" />
+                <path d="M320 10 C 340 60, 360 80, 400 120" />
+                <path d="M480 10 C 460 60, 440 80, 400 120" />
+                <path d="M600 10 C 560 70, 480 50, 400 120" />
+                <path d="M720 10 C 680 90, 520 40, 400 120" />
+                <circle r="3"><animateMotion dur="4s" repeatCount="indefinite" path="M80 10 C 120 90, 280 40, 400 120"/></circle>
+                <circle r="3"><animateMotion dur="5s" repeatCount="indefinite" path="M720 10 C 680 90, 520 40, 400 120"/></circle>
+              </svg>
+            </div>
+
+            <div class="feed" id="live-feed" aria-live="polite"></div>
+          </div>
         </div>
       </section>
 
-      <div class="wrap">
-        <section id="features" aria-labelledby="features-title">
-          <p class="section-kicker reveal">Features</p>
-          <h2 id="features-title" class="reveal">Everything you need to stay consistent</h2>
-          <p class="section-intro reveal reveal-delay-1">
-            A focused toolkit for reflection and momentum—without clutter or noise.
+      <!-- PIPELINE -->
+      <section class="pipeline" id="how" aria-labelledby="how-title">
+        <div class="wrap">
+          <span class="section-label reveal">The loop</span>
+          <h2 class="section-title reveal" id="how-title">Four steps between intention and progress</h2>
+          <p class="section-lead reveal">
+            Nothing stays vague. Reflecta captures what you do, reads the pattern, turns it into
+            guidance, and keeps the next action obvious.
           </p>
+          <div class="steps">
+            <article class="step reveal">
+              <div class="step-head">
+                <span class="step-num">01</span>
+                <h3>Track</h3>
+              </div>
+              <p>Log habits and goals in a calm daily flow—streaks and check-ins without clutter.</p>
+              <div class="step-panel">
+                <div class="step-row"><span>Habit</span><strong>Morning focus</strong></div>
+                <div class="step-row"><span>Streak</span><strong class="up">12 days</strong></div>
+              </div>
+            </article>
+            <article class="step reveal">
+              <div class="step-head">
+                <span class="step-num">02</span>
+                <h3>Reflect</h3>
+              </div>
+              <p>See how you actually showed up—patterns, misses, and quiet wins in one place.</p>
+              <div class="step-panel">
+                <div class="step-row"><span>Week</span><strong>Consistency</strong></div>
+                <div class="step-row"><span>Score</span><strong class="up">86%</strong></div>
+              </div>
+            </article>
+            <article class="step reveal">
+              <div class="step-head">
+                <span class="step-num">03</span>
+                <h3>Insight</h3>
+              </div>
+              <p>AI reads your context and suggests adjustments—not generic advice for everyone.</p>
+              <div class="step-panel">
+                <div class="step-row"><span>Signal</span><strong>Evening drift</strong></div>
+                <div class="step-row"><span>Confidence</span><strong>94%</strong></div>
+              </div>
+            </article>
+            <article class="step reveal">
+              <div class="step-head">
+                <span class="step-num">04</span>
+                <h3>Improve</h3>
+              </div>
+              <p>Spend credits on deeper insights, then turn guidance into the next clear action.</p>
+              <div class="step-panel">
+                <div class="step-row"><span>Credits</span><strong>Balanced</strong></div>
+                <div class="step-row"><span>Next</span><strong>Lock 8pm wind-down</strong></div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
 
-          <div class="feature-list">
+      <!-- SHOWCASE -->
+      <section class="showcase" aria-labelledby="showcase-title">
+        <div class="wrap">
+          <span class="section-label reveal">Product</span>
+          <h2 class="section-title reveal" id="showcase-title">See Reflecta’s calm focus in one glance</h2>
+          <p class="section-lead reveal">
+            A quiet surface for habits, goals, and AI guidance—built so your attention stays on
+            progress, not the interface.
+          </p>
+          <div class="showcase-stage reveal">
+            <div class="showcase-chips" aria-hidden="true">
+              <span class="chip chip-1">12-day streak</span>
+              <span class="chip chip-2">AI insight ready</span>
+              <span class="chip chip-3">Goal 68%</span>
+              <span class="chip chip-4">Credits OK</span>
+            </div>
+            <div class="showcase-mark">
+              <img src="icon.jpg" alt="Reflecta app icon" width="180" height="180" decoding="async" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FEATURES -->
+      <section id="features" aria-labelledby="features-title">
+        <div class="wrap">
+          <span class="section-label reveal">Why Reflecta</span>
+          <h2 class="section-title reveal" id="features-title">Built for what happens after you commit</h2>
+          <p class="section-lead reveal">
+            Clarity, context, and control—so habits compound without the noise of a productivity dashboard.
+          </p>
+          <div class="features-grid">
             <article class="feature reveal">
-              <div class="feature-index" aria-hidden="true">
-                <span class="feature-num">01</span>
-                <svg class="feature-glyph" viewBox="0 0 32 32" fill="none" aria-hidden="true"><circle cx="16" cy="16" r="10" stroke="currentColor" stroke-width="1.6"/><circle cx="16" cy="16" r="3.5" fill="currentColor"/></svg>
+              <div class="feature-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 16V8m7 8V5m7 11v-6" stroke-linecap="round"/></svg>
               </div>
-              <div>
-                <h3>Habit clarity</h3>
-                <p>
-                  See streaks, patterns, and gentle nudges so small wins compound
-                  into lasting change.
-                </p>
+              <h3>Habit clarity</h3>
+              <p>Streaks and gentle nudges that turn small wins into lasting change.</p>
+              <div class="streak-row" aria-hidden="true">
+                <span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span></span><span class="on"></span>
               </div>
-              <div class="feature-visual" aria-hidden="true"></div>
             </article>
-            <article class="feature reveal reveal-delay-1">
-              <div class="feature-index" aria-hidden="true">
-                <span class="feature-num">02</span>
-                <svg class="feature-glyph" viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M8 22L14 12l5 7 5-11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <article class="feature reveal">
+              <div class="feature-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l1.6 5.4L19 9l-5.4 1.6L12 16l-1.6-5.4L5 9l5.4-1.6L12 2z"/></svg>
               </div>
-              <div>
-                <h3>Goal tracking</h3>
-                <p>
-                  Set milestones, monitor progress, and keep long-term objectives in
-                  view alongside daily habits.
-                </p>
+              <h3>AI insights</h3>
+              <p>Context-aware suggestions based on how you actually show up.</p>
+              <div class="mini-bars" aria-hidden="true">
+                <div class="mini-bar"><span>Focus</span><i><b style="width: 82%"></b></i><em>82%</em></div>
+                <div class="mini-bar"><span>Sleep</span><i><b style="width: 64%"></b></i><em>64%</em></div>
+                <div class="mini-bar"><span>Move</span><i><b style="width: 71%"></b></i><em>71%</em></div>
               </div>
-              <div class="feature-visual" aria-hidden="true"></div>
             </article>
-            <article class="feature reveal reveal-delay-2">
-              <div class="feature-index" aria-hidden="true">
-                <span class="feature-num">03</span>
-                <svg class="feature-glyph" viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M16 6l1.8 6.2L24 14l-6.2 1.8L16 22l-1.8-6.2L8 14l6.2-1.8L16 6z" fill="currentColor"/></svg>
+            <article class="feature reveal">
+              <div class="feature-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="7" width="16" height="12" rx="3"/><path d="M8 7V6a4 4 0 0 1 8 0v1" stroke-linecap="round"/></svg>
               </div>
-              <div>
-                <h3>AI insights</h3>
-                <p>
-                  Context-aware suggestions help you adjust routines based on how you
-                  actually show up—not generic advice.
-                </p>
+              <h3>Credits &amp; balance</h3>
+              <p>Use credits for premium insights with transparent usage you control.</p>
+              <div class="step-panel" style="border-top: none; padding-top: 0">
+                <div class="step-row"><span>Available</span><strong>240</strong></div>
+                <div class="step-row"><span>Used today</span><strong>12</strong></div>
               </div>
-              <div class="feature-visual" aria-hidden="true"></div>
-            </article>
-            <article class="feature reveal reveal-delay-3">
-              <div class="feature-index" aria-hidden="true">
-                <span class="feature-num">04</span>
-                <svg class="feature-glyph" viewBox="0 0 32 32" fill="none" aria-hidden="true"><rect x="7" y="10" width="18" height="13" rx="3" stroke="currentColor" stroke-width="1.6"/><path d="M11 10V9a5 5 0 0 1 10 0v1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
-              </div>
-              <div>
-                <h3>Credits &amp; balance</h3>
-                <p>
-                  Use credits for premium insights and features, with transparent usage
-                  so you stay in control.
-                </p>
-              </div>
-              <div class="feature-visual" aria-hidden="true"></div>
             </article>
           </div>
-        </section>
+        </div>
+      </section>
 
-        <section class="reveal" aria-label="Product atmosphere">
-          <div class="atmosphere">
-            <div class="atmosphere-bg" aria-hidden="true"></div>
-            <div class="atmosphere-copy">
-              <h2>Quiet focus. Clear progress.</h2>
-              <p>
-                Reflecta keeps reflection simple so your energy stays on the habits
-                that matter.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        <section id="support" aria-labelledby="support-title">
-          <div class="support-block">
-            <div>
-              <p class="section-kicker reveal">Support</p>
-              <h2 id="support-title" class="reveal">We’re here when you need us</h2>
-              <p class="section-intro reveal reveal-delay-1">
-                Questions about Reflecta, billing, or your account? Reach out anytime.
-                We aim to reply within a few business days.
-              </p>
-            </div>
-            <div class="support-action reveal reveal-delay-2">
-              <label id="support-email-label">Support email</label>
-              <div class="email-line">
-                <span class="email-value" id="support-email" aria-labelledby="support-email-label">mohsen.ahmadinia@icloud.com</span>
-                <button type="button" class="btn btn-dark" id="copy-email" aria-label="Copy support email">
-                  Copy
-                </button>
-              </div>
-              <a class="btn btn-outline" href="mailto:mohsen.ahmadinia@icloud.com">Open mail app</a>
-            </div>
-          </div>
-        </section>
-
-        <section id="privacy" aria-labelledby="privacy-title">
-          <p class="section-kicker reveal">Legal</p>
-          <h2 id="privacy-title" class="reveal">Privacy &amp; terms</h2>
-          <p class="section-intro reveal reveal-delay-1">
-            How Reflecta handles information and the rules for using the service.
+      <!-- USE CASES -->
+      <section class="cases" id="cases" aria-labelledby="cases-title">
+        <div class="wrap">
+          <span class="section-label reveal">Use cases</span>
+          <h2 class="section-title reveal" id="cases-title">One calm system for many kinds of progress</h2>
+          <p class="section-lead reveal">
+            The same habits and insights answer a different question depending on what you’re building.
           </p>
+          <div class="cases-grid">
+            <article class="case reveal">
+              <span class="case-kicker">Mornings</span>
+              <h3>Start the day on purpose</h3>
+              <p>Stack a short morning routine and keep the streak visible without pressure.</p>
+            </article>
+            <article class="case reveal">
+              <span class="case-kicker">Deep work</span>
+              <h3>Protect focus blocks</h3>
+              <p>Track deep-work sessions and get nudges when evenings start to erode them.</p>
+            </article>
+            <article class="case reveal">
+              <span class="case-kicker">Health</span>
+              <h3>Move, sleep, recover</h3>
+              <p>Keep health habits beside goals so energy and ambition stay connected.</p>
+            </article>
+            <article class="case reveal">
+              <span class="case-kicker">Learning</span>
+              <h3>Study that compounds</h3>
+              <p>Turn reading or practice into a streak with milestones you can actually feel.</p>
+            </article>
+            <article class="case reveal">
+              <span class="case-kicker">Mindfulness</span>
+              <h3>Reflect without noise</h3>
+              <p>Log reflections and let AI surface themes—not a feed of productivity guilt.</p>
+            </article>
+            <article class="case reveal">
+              <span class="case-kicker">Career</span>
+              <h3>Ship long-term goals</h3>
+              <p>Break big objectives into habits, then watch weekly progress stay in view.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- SUPPORT -->
+      <section id="support" aria-labelledby="support-title">
+        <div class="wrap support-grid">
+          <div>
+            <span class="section-label reveal">Support</span>
+            <h2 class="section-title reveal" id="support-title">We’re here when you need us</h2>
+            <p class="section-lead reveal">
+              Questions about Reflecta, billing, or your account? Reach out anytime. We aim to reply
+              within a few business days.
+            </p>
+          </div>
+          <div class="support-panel reveal">
+            <label id="support-email-label">Support email</label>
+            <div class="email-line">
+              <span class="email-value" id="support-email" aria-labelledby="support-email-label"
+                >mohsen.ahmadinia@icloud.com</span
+              >
+              <button type="button" class="btn btn-dark" id="copy-email" aria-label="Copy support email">
+                Copy
+              </button>
+            </div>
+            <a class="btn btn-outline" href="mailto:mohsen.ahmadinia@icloud.com">Open mail app</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ + LEGAL -->
+      <section id="privacy" aria-labelledby="faq-title">
+        <div class="wrap">
+          <span class="section-label reveal">Questions</span>
+          <h2 class="section-title reveal" id="faq-title">What people ask before they start</h2>
+          <p class="section-lead reveal">Straight answers about Reflecta, insights, and your data.</p>
+
+          <div class="faq-grid">
+            <article class="faq-item reveal">
+              <h3>What is Reflecta?</h3>
+              <p>
+                Reflecta is a personal growth app for tracking habits and goals with AI-powered
+                insights and a transparent credits system.
+              </p>
+            </article>
+            <article class="faq-item reveal">
+              <h3>How do AI insights work?</h3>
+              <p>
+                Insights are assistive suggestions based on your activity patterns. They are not
+                medical, mental-health, or legal advice.
+              </p>
+            </article>
+            <article class="faq-item reveal">
+              <h3>What are credits?</h3>
+              <p>
+                Credits unlock premium insights and features. Usage stays visible so you always know
+                what you’ve spent.
+              </p>
+            </article>
+            <article class="faq-item reveal">
+              <h3>How do I get help?</h3>
+              <p>
+                Email
+                <a href="mailto:mohsen.ahmadinia@icloud.com">mohsen.ahmadinia@icloud.com</a>
+                — we aim to reply within a few business days.
+              </p>
+            </article>
+          </div>
 
           <div class="legal-stack">
             <details class="legal reveal" id="privacy-details">
@@ -1130,34 +1606,33 @@
               <div class="legal-body">
                 <p><strong>Last updated:</strong> May 9, 2026</p>
                 <p>
-                  This Privacy Policy describes how Reflecta (“we,” “us”) collects,
-                  uses, and shares information when you use our websites, apps, and
-                  related services (collectively, the “Services”).
+                  This Privacy Policy describes how Reflecta (“we,” “us”) collects, uses, and shares
+                  information when you use our websites, apps, and related services (collectively, the
+                  “Services”).
                 </p>
                 <h3>Information we collect</h3>
                 <p>
-                  We may collect account details you provide (such as email),
-                  usage data (such as feature interactions), device information, and
-                  support communications. Specific categories depend on how you use the
-                  Services.
+                  We may collect account details you provide (such as email), usage data (such as
+                  feature interactions), device information, and support communications. Specific
+                  categories depend on how you use the Services.
                 </p>
                 <h3>How we use information</h3>
                 <p>
-                  We use information to operate and improve the Services, provide AI-
-                  powered features where applicable, personalize your experience,
-                  communicate with you, ensure security, and comply with law.
+                  We use information to operate and improve the Services, provide AI-powered features
+                  where applicable, personalize your experience, communicate with you, ensure security,
+                  and comply with law.
                 </p>
                 <h3>Sharing</h3>
                 <p>
-                  We may share information with service providers who assist us (for
-                  example, hosting or analytics), when required by law, or to protect
-                  rights and safety. We do not sell your personal information.
+                  We may share information with service providers who assist us (for example, hosting
+                  or analytics), when required by law, or to protect rights and safety. We do not sell
+                  your personal information.
                 </p>
                 <h3>Your choices</h3>
                 <p>
-                  Depending on your region, you may have rights to access, correct,
-                  delete, or export certain data, or to object to certain processing.
-                  Contact us using the support email above to make a request.
+                  Depending on your region, you may have rights to access, correct, delete, or export
+                  certain data, or to object to certain processing. Contact us using the support email
+                  above to make a request.
                 </p>
                 <h3>Contact</h3>
                 <p>
@@ -1167,46 +1642,45 @@
               </div>
             </details>
 
-            <details class="legal reveal reveal-delay-1" id="terms">
-              <summary id="terms-title">
+            <details class="legal reveal" id="terms">
+              <summary>
                 Terms of Service
                 <span class="chev" aria-hidden="true">›</span>
               </summary>
               <div class="legal-body">
                 <p><strong>Last updated:</strong> May 9, 2026</p>
                 <p>
-                  These Terms of Service (“Terms”) govern your access to and use of
-                  Reflecta’s Services. By using the Services, you agree to these Terms.
+                  These Terms of Service (“Terms”) govern your access to and use of Reflecta’s
+                  Services. By using the Services, you agree to these Terms.
                 </p>
                 <h3>Accounts</h3>
                 <p>
-                  You are responsible for your account credentials and for all activity
-                  under your account. You must provide accurate information and keep it
-                  current.
+                  You are responsible for your account credentials and for all activity under your
+                  account. You must provide accurate information and keep it current.
                 </p>
                 <h3>Acceptable use</h3>
                 <p>
-                  You agree not to misuse the Services, interfere with their operation,
-                  attempt unauthorized access, or use them in violation of applicable
-                  law. We may suspend or terminate access for violations.
+                  You agree not to misuse the Services, interfere with their operation, attempt
+                  unauthorized access, or use them in violation of applicable law. We may suspend or
+                  terminate access for violations.
                 </p>
                 <h3>AI features &amp; credits</h3>
                 <p>
-                  AI-generated outputs are assistive and may be imperfect. Credits,
-                  pricing, and availability of premium features are described in-app or
-                  on our website and may change with notice where required.
+                  AI-generated outputs are assistive and may be imperfect. Credits, pricing, and
+                  availability of premium features are described in-app or on our website and may
+                  change with notice where required.
                 </p>
                 <h3>Disclaimers</h3>
                 <p>
-                  The Services are provided “as is” without warranties of any kind,
-                  to the fullest extent permitted by law. Reflecta is not a substitute
-                  for professional medical, mental health, or legal advice.
+                  The Services are provided “as is” without warranties of any kind, to the fullest
+                  extent permitted by law. Reflecta is not a substitute for professional medical,
+                  mental health, or legal advice.
                 </p>
                 <h3>Limitation of liability</h3>
                 <p>
-                  To the maximum extent permitted by law, Reflecta’s liability arising
-                  out of or related to the Services is limited as described in these
-                  Terms; some jurisdictions do not allow certain limitations.
+                  To the maximum extent permitted by law, Reflecta’s liability arising out of or
+                  related to the Services is limited as described in these Terms; some jurisdictions do
+                  not allow certain limitations.
                 </p>
                 <h3>Contact</h3>
                 <p>
@@ -1216,8 +1690,22 @@
               </div>
             </details>
           </div>
-        </section>
-      </div>
+        </div>
+      </section>
+
+      <!-- FINAL CTA -->
+      <section class="final" aria-labelledby="final-title">
+        <div class="wrap">
+          <div class="final-card reveal">
+            <h2 id="final-title">Ready for calmer, clearer progress?</h2>
+            <p>
+              Reflecta keeps habits, goals, and AI guidance in one focused place—so you can build what
+              matters next.
+            </p>
+            <a class="btn btn-primary lg" href="#support">Get support →</a>
+          </div>
+        </div>
+      </section>
     </main>
 
     <div class="wrap">
@@ -1228,15 +1716,15 @@
             <p>Habits, goals, and growth—illuminated by thoughtful AI.</p>
           </div>
           <div class="footer-links" aria-label="Footer">
+            <a href="#how">How it works</a>
             <a href="#features">Features</a>
+            <a href="#cases">Use cases</a>
             <a href="#support">Support</a>
             <a href="#privacy">Privacy</a>
             <a href="#terms">Terms</a>
             <a href="mailto:mohsen.ahmadinia@icloud.com">Email</a>
           </div>
-          <p class="footer-meta">
-            © <span id="year"></span> Reflecta. All rights reserved.
-          </p>
+          <p class="footer-meta">© <span id="year"></span> Reflecta. All rights reserved.</p>
         </div>
       </footer>
     </div>
@@ -1249,7 +1737,7 @@
         var header = document.getElementById("site-header");
         function onScroll() {
           if (!header) return;
-          if (window.scrollY > 24) header.classList.add("is-scrolled");
+          if (window.scrollY > 8) header.classList.add("is-scrolled");
           else header.classList.remove("is-scrolled");
         }
         onScroll();
@@ -1263,7 +1751,6 @@
             var prev = btn.textContent;
             function done(ok) {
               btn.textContent = ok ? "Copied!" : "Copy failed";
-              btn.setAttribute("aria-live", "polite");
               setTimeout(function () {
                 btn.textContent = prev;
               }, 1800);
@@ -1294,8 +1781,106 @@
           });
         }
 
+        // Live habit/insight feed (SoTrace-style hero proof)
+        var feed = document.getElementById("live-feed");
+        var cards = [
+          {
+            initials: "AM",
+            name: "Ava M.",
+            time: "2m ago",
+            tag: "Streak",
+            tagClass: "tag-mint",
+            body: "Completed Morning focus — 12-day streak. Small win logged.",
+            meta: ["Habit", "+1 day"],
+          },
+          {
+            initials: "JL",
+            name: "Jordan L.",
+            time: "5m ago",
+            tag: "Insight",
+            tagClass: "tag-violet",
+            body: "AI notice: evenings dip after 8pm. Try a 10-minute wind-down block.",
+            meta: ["Confidence 94%", "Credits 2"],
+          },
+          {
+            initials: "SK",
+            name: "Sam K.",
+            time: "9m ago",
+            tag: "Goal",
+            tagClass: "tag-sky",
+            body: "Deep work goal moved to 68%. Three focused sessions this week.",
+            meta: ["Goal", "+8%"],
+          },
+          {
+            initials: "RN",
+            name: "Riley N.",
+            time: "14m ago",
+            tag: "Reflect",
+            tagClass: "tag-amber",
+            body: "Weekly reflection ready: consistency up, sleep habit needs a softer target.",
+            meta: ["Week review", "New"],
+          },
+        ];
+
+        function renderFeed(active) {
+          if (!feed) return;
+          feed.innerHTML = "";
+          for (var i = 0; i < 3; i++) {
+            var item = cards[(active + i) % cards.length];
+            var el = document.createElement("article");
+            el.className = "feed-card" + (i === 0 ? " is-on" : i === 1 ? " is-on" : " is-dim");
+            el.innerHTML =
+              '<div class="feed-top">' +
+              '<div class="feed-user">' +
+              '<div class="avatar">' +
+              item.initials +
+              "</div>" +
+              "<div><strong>" +
+              item.name +
+              "</strong><span>" +
+              item.time +
+              "</span></div>" +
+              "</div>" +
+              '<span class="tag ' +
+              item.tagClass +
+              '">' +
+              item.tag +
+              "</span>" +
+              "</div>" +
+              "<p>" +
+              item.body +
+              "</p>" +
+              '<div class="feed-meta"><span>' +
+              item.meta[0] +
+              "</span><span>" +
+              item.meta[1] +
+              "</span></div>";
+            feed.appendChild(el);
+          }
+          // trigger enter
+          requestAnimationFrame(function () {
+            var nodes = feed.querySelectorAll(".feed-card");
+            nodes.forEach(function (n, idx) {
+              setTimeout(function () {
+                n.classList.add("is-on");
+                if (idx === 2) n.classList.add("is-dim");
+              }, idx * 80);
+            });
+          });
+        }
+
+        var feedIndex = 0;
+        renderFeed(feedIndex);
+        var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        if (!reduceMotion) {
+          setInterval(function () {
+            feedIndex = (feedIndex + 1) % cards.length;
+            renderFeed(feedIndex);
+          }, 3800);
+        }
+
         var reveals = document.querySelectorAll(".reveal");
-        if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        if (!reduceMotion) {
           var io = new IntersectionObserver(
             function (entries) {
               entries.forEach(function (entry) {
@@ -1305,7 +1890,7 @@
                 }
               });
             },
-            { rootMargin: "0px 0px -10% 0px", threshold: 0.08 }
+            { rootMargin: "0px 0px -8% 0px", threshold: 0.08 }
           );
           reveals.forEach(function (el) {
             io.observe(el);
@@ -1316,7 +1901,6 @@
           });
         }
 
-        // Open the matching legal panel when deep-linked
         function openHashTarget() {
           var hash = window.location.hash;
           if (hash === "#privacy") {
