@@ -293,7 +293,6 @@
         border: 1px solid transparent;
         cursor: pointer;
         font-family: inherit;
-        font-weight: 650;
         font-weight: 600;
         font-size: 0.95rem;
         text-decoration: none;
@@ -489,8 +488,9 @@
       }
 
       .insight-rows {
-        display: grid;
-        gap: 28px;
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
       }
 
       .insight-row {
@@ -498,15 +498,14 @@
         grid-template-columns: 1fr 1.1fr;
         gap: 36px;
         align-items: center;
-        padding: 8px 0;
       }
 
-      .insight-row.reverse {
-        direction: rtl;
+      .insight-row.reverse .insight-copy {
+        order: 2;
       }
 
-      .insight-row.reverse > * {
-        direction: ltr;
+      .insight-row.reverse .insight-visual {
+        order: 1;
       }
 
       .insight-copy h3 {
@@ -824,10 +823,13 @@
 
         .about-grid,
         .support-grid,
-        .insight-row,
-        .insight-row.reverse {
+        .insight-row {
           grid-template-columns: 1fr;
-          direction: ltr;
+        }
+
+        .insight-row.reverse .insight-copy,
+        .insight-row.reverse .insight-visual {
+          order: initial;
         }
       }
 
@@ -1093,6 +1095,19 @@
         </div>
       </section>
 
+      <section class="closing" aria-labelledby="closing-title">
+        <div class="wrap">
+          <div class="closing-band reveal">
+            <h2 id="closing-title">Understand yourself with quieter clarity.</h2>
+            <p>
+              Reflecta is built for thoughtful assessment and honest insight—when you’re ready to look
+              closer.
+            </p>
+            <a class="btn btn-light" href="#support">Talk to support</a>
+          </div>
+        </div>
+      </section>
+
       <section id="privacy" aria-labelledby="legal-title">
         <div class="wrap">
           <p class="kicker reveal">Legal</p>
@@ -1192,19 +1207,6 @@
                 </p>
               </div>
             </details>
-          </div>
-        </div>
-      </section>
-
-      <section class="closing" aria-labelledby="closing-title">
-        <div class="wrap">
-          <div class="closing-band reveal">
-            <h2 id="closing-title">Understand yourself with quieter clarity.</h2>
-            <p>
-              Reflecta is built for thoughtful assessment and honest insight—when you’re ready to look
-              closer.
-            </p>
-            <a class="btn btn-light" href="#support">Talk to support</a>
           </div>
         </div>
       </section>
