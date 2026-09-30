@@ -579,9 +579,21 @@
       /* Support */
       .support-block {
         display: grid;
-        grid-template-columns: 1.1fr 0.9fr;
+        grid-template-columns: minmax(0, 1.15fr) minmax(260px, 0.85fr);
         gap: 40px;
-        align-items: end;
+        align-items: start;
+      }
+
+      .support-block h2 {
+        max-width: 14ch;
+        line-height: 1.2;
+        margin-bottom: 18px;
+        text-wrap: balance;
+      }
+
+      .support-block .section-intro {
+        margin-bottom: 0;
+        max-width: 38ch;
       }
 
       .support-action {
@@ -1084,7 +1096,7 @@
             <div>
               <p class="section-kicker reveal">Support</p>
               <h2 id="support-title" class="reveal">We’re here when you need us</h2>
-              <p class="section-intro reveal reveal-delay-1" style="margin-bottom: 0">
+              <p class="section-intro reveal reveal-delay-1">
                 Questions about Reflecta, billing, or your account? Reach out anytime.
                 We aim to reply within a few business days.
               </p>
