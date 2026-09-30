@@ -128,12 +128,17 @@
         display: inline-flex;
         align-items: center;
         gap: 10px;
-        color: var(--ink);
+        color: #fff;
         text-decoration: none;
         font-family: "Syne", sans-serif;
         font-weight: 700;
         font-size: 1.05rem;
         letter-spacing: -0.03em;
+        transition: color 0.3s var(--ease);
+      }
+
+      .site-header.is-scrolled .logo {
+        color: var(--ink);
       }
 
       .logo:hover {
@@ -163,7 +168,7 @@
       }
 
       .nav a {
-        color: var(--ink-soft);
+        color: rgba(255, 255, 255, 0.82);
         font-size: 0.92rem;
         font-weight: 500;
         padding: 8px 12px;
@@ -172,23 +177,40 @@
       }
 
       .nav a:hover {
-        color: var(--ink);
+        color: #fff;
         text-decoration: none;
+      }
+
+      .site-header.is-scrolled .nav a {
+        color: var(--ink-soft);
+      }
+
+      .site-header.is-scrolled .nav a:hover {
+        color: var(--ink);
       }
 
       .nav-cta {
         margin-left: 6px;
         padding: 9px 16px !important;
         border-radius: 10px;
-        background: var(--ink);
-        color: #fff !important;
+        background: rgba(255, 255, 255, 0.95) !important;
+        color: var(--ink) !important;
         font-weight: 600 !important;
-        transition: transform 0.25s var(--ease), background 0.25s var(--ease) !important;
+        transition: transform 0.25s var(--ease), background 0.25s var(--ease), color 0.25s var(--ease) !important;
       }
 
       .nav-cta:hover {
-        background: #1c2233;
+        background: #fff !important;
         transform: translateY(-1px);
+      }
+
+      .site-header.is-scrolled .nav-cta {
+        background: var(--ink) !important;
+        color: #fff !important;
+      }
+
+      .site-header.is-scrolled .nav-cta:hover {
+        background: #1c2233 !important;
       }
 
       /* ——— Hero: one full-bleed composition ——— */
@@ -458,12 +480,25 @@
       }
 
       .feature-index {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        padding-top: 4px;
+        color: var(--cyan-deep);
+      }
+
+      .feature-num {
         font-family: "Syne", sans-serif;
         font-weight: 700;
         font-size: 0.9rem;
-        color: var(--cyan-deep);
         letter-spacing: 0.04em;
-        padding-top: 6px;
+      }
+
+      .feature-glyph {
+        width: 32px;
+        height: 32px;
+        opacity: 0.9;
       }
 
       .feature h3 {
@@ -828,16 +863,27 @@
           width: calc(100% - 28px);
         }
 
-        .hero-content {
-          width: calc(100% - 28px);
-          padding-top: calc(var(--header-h) + 36px);
+        .hero {
+          align-items: start;
         }
 
         .hero-mark {
-          width: min(38vw, 150px);
-          top: 18%;
-          right: 6%;
-          border-radius: 24%;
+          position: relative;
+          right: auto;
+          top: auto;
+          width: 112px;
+          margin: calc(var(--header-h) + 28px) 0 0 14px;
+          border-radius: 28%;
+          animation: markRise 1s var(--ease) 0.1s both;
+          box-shadow: 0 24px 60px rgba(16, 19, 28, 0.25);
+        }
+
+        .hero-content {
+          width: calc(100% - 28px);
+          margin: 0 auto;
+          padding-top: 22px;
+          padding-bottom: 56px;
+          max-width: none;
         }
 
         .brand-lockup {
@@ -962,7 +1008,10 @@
 
           <div class="feature-list">
             <article class="feature reveal">
-              <div class="feature-index" aria-hidden="true">01</div>
+              <div class="feature-index" aria-hidden="true">
+                <span class="feature-num">01</span>
+                <svg class="feature-glyph" viewBox="0 0 32 32" fill="none" aria-hidden="true"><circle cx="16" cy="16" r="10" stroke="currentColor" stroke-width="1.6"/><circle cx="16" cy="16" r="3.5" fill="currentColor"/></svg>
+              </div>
               <div>
                 <h3>Habit clarity</h3>
                 <p>
@@ -973,7 +1022,10 @@
               <div class="feature-visual" aria-hidden="true"></div>
             </article>
             <article class="feature reveal reveal-delay-1">
-              <div class="feature-index" aria-hidden="true">02</div>
+              <div class="feature-index" aria-hidden="true">
+                <span class="feature-num">02</span>
+                <svg class="feature-glyph" viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M8 22L14 12l5 7 5-11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
               <div>
                 <h3>Goal tracking</h3>
                 <p>
@@ -984,7 +1036,10 @@
               <div class="feature-visual" aria-hidden="true"></div>
             </article>
             <article class="feature reveal reveal-delay-2">
-              <div class="feature-index" aria-hidden="true">03</div>
+              <div class="feature-index" aria-hidden="true">
+                <span class="feature-num">03</span>
+                <svg class="feature-glyph" viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M16 6l1.8 6.2L24 14l-6.2 1.8L16 22l-1.8-6.2L8 14l6.2-1.8L16 6z" fill="currentColor"/></svg>
+              </div>
               <div>
                 <h3>AI insights</h3>
                 <p>
@@ -995,7 +1050,10 @@
               <div class="feature-visual" aria-hidden="true"></div>
             </article>
             <article class="feature reveal reveal-delay-3">
-              <div class="feature-index" aria-hidden="true">04</div>
+              <div class="feature-index" aria-hidden="true">
+                <span class="feature-num">04</span>
+                <svg class="feature-glyph" viewBox="0 0 32 32" fill="none" aria-hidden="true"><rect x="7" y="10" width="18" height="13" rx="3" stroke="currentColor" stroke-width="1.6"/><path d="M11 10V9a5 5 0 0 1 10 0v1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+              </div>
               <div>
                 <h3>Credits &amp; balance</h3>
                 <p>
@@ -1190,19 +1248,36 @@
         if (btn && emailEl) {
           btn.addEventListener("click", function () {
             var email = emailEl.textContent.trim();
-            function done() {
-              var prev = btn.textContent;
-              btn.textContent = "Copied!";
+            var prev = btn.textContent;
+            function done(ok) {
+              btn.textContent = ok ? "Copied!" : "Copy failed";
+              btn.setAttribute("aria-live", "polite");
               setTimeout(function () {
                 btn.textContent = prev;
               }, 1800);
             }
+            function fallbackCopy() {
+              try {
+                var ta = document.createElement("textarea");
+                ta.value = email;
+                ta.setAttribute("readonly", "");
+                ta.style.position = "fixed";
+                ta.style.left = "-9999px";
+                document.body.appendChild(ta);
+                ta.select();
+                var ok = document.execCommand("copy");
+                document.body.removeChild(ta);
+                done(ok);
+              } catch (e) {
+                done(false);
+              }
+            }
             if (navigator.clipboard && navigator.clipboard.writeText) {
-              navigator.clipboard.writeText(email).then(done).catch(function () {
-                window.prompt("Copy this email:", email);
-              });
+              navigator.clipboard.writeText(email).then(function () {
+                done(true);
+              }).catch(fallbackCopy);
             } else {
-              window.prompt("Copy this email:", email);
+              fallbackCopy();
             }
           });
         }
