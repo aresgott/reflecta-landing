@@ -358,34 +358,34 @@
       /* Network proof */
       .proof {
         position: relative;
-        max-width: 920px;
+        max-width: 980px;
         margin: 0 auto;
-        min-height: 420px;
+        min-height: 460px;
+        display: grid;
+        grid-template-columns: 88px 1fr 88px;
+        gap: 18px;
+        align-items: center;
         animation: fadeUp 1s var(--ease) 0.2s both;
       }
 
-      .proof-rail {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: 12px;
-        max-width: 720px;
-        margin: 0 auto 28px;
+      .proof-side {
+        display: grid;
+        gap: 14px;
+        justify-items: center;
         position: relative;
         z-index: 2;
       }
 
       .cap {
-        width: 52px;
-        height: 52px;
-        border-radius: 14px;
+        width: 54px;
+        height: 54px;
+        border-radius: 16px;
         background: var(--white);
         border: 1px solid var(--line);
         box-shadow: var(--shadow);
         display: grid;
         place-items: center;
         color: var(--violet-deep);
-        transition: transform 0.35s var(--ease);
       }
 
       .cap svg {
@@ -403,7 +403,7 @@
 
       .proof-lines {
         position: absolute;
-        inset: 40px 8% 180px;
+        inset: 8% 10%;
         pointer-events: none;
         z-index: 0;
       }
@@ -429,7 +429,8 @@
         z-index: 2;
         display: grid;
         gap: 12px;
-        max-width: 440px;
+        max-width: 460px;
+        width: 100%;
         margin: 0 auto;
       }
 
@@ -1206,13 +1207,19 @@
 
         .proof {
           min-height: 0;
+          grid-template-columns: 1fr;
+          gap: 20px;
         }
 
-        .proof-rail {
-          display: grid;
+        .proof-side {
           grid-template-columns: repeat(4, 1fr);
           gap: 10px;
           max-width: 320px;
+          margin: 0 auto;
+        }
+
+        .proof-side:last-child {
+          display: none;
         }
 
         .cap {
@@ -1317,7 +1324,22 @@
           </div>
 
           <div class="proof" aria-label="Reflecta in action">
-            <div class="proof-rail" aria-hidden="true">
+            <div class="proof-lines" aria-hidden="true">
+              <svg viewBox="0 0 900 420" preserveAspectRatio="none">
+                <path d="M70 60 C 180 80, 280 140, 450 170" />
+                <path d="M70 160 C 190 170, 300 180, 450 200" />
+                <path d="M70 260 C 190 250, 300 230, 450 220" />
+                <path d="M70 350 C 200 320, 310 260, 450 240" />
+                <path d="M830 60 C 720 80, 620 140, 450 170" />
+                <path d="M830 160 C 710 170, 600 180, 450 200" />
+                <path d="M830 260 C 710 250, 600 230, 450 220" />
+                <path d="M830 350 C 700 320, 590 260, 450 240" />
+                <circle r="3.5"><animateMotion dur="4.2s" repeatCount="indefinite" path="M70 160 C 190 170, 300 180, 450 200"/></circle>
+                <circle r="3.5"><animateMotion dur="5s" repeatCount="indefinite" path="M830 260 C 710 250, 600 230, 450 220"/></circle>
+              </svg>
+            </div>
+
+            <div class="proof-side" aria-hidden="true">
               <div class="cap" title="Habits">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3" fill="currentColor" stroke="none"/></svg>
               </div>
@@ -1330,6 +1352,11 @@
               <div class="cap" title="Credits">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="7" width="16" height="12" rx="3"/><path d="M8 7V6a4 4 0 0 1 8 0v1" stroke-linecap="round"/></svg>
               </div>
+            </div>
+
+            <div class="feed" id="live-feed" aria-live="polite"></div>
+
+            <div class="proof-side" aria-hidden="true">
               <div class="cap" title="Streaks">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M8 14c0-4 3-6 4-9 3 3 6 5 6 9a6 6 0 1 1-12 0z" stroke-linejoin="round"/></svg>
               </div>
@@ -1343,21 +1370,6 @@
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 16V8m7 8V5m7 11v-6" stroke-linecap="round"/></svg>
               </div>
             </div>
-
-            <div class="proof-lines" aria-hidden="true">
-              <svg viewBox="0 0 800 220" preserveAspectRatio="none">
-                <path d="M80 10 C 120 90, 280 40, 400 120" />
-                <path d="M200 10 C 240 70, 320 50, 400 120" />
-                <path d="M320 10 C 340 60, 360 80, 400 120" />
-                <path d="M480 10 C 460 60, 440 80, 400 120" />
-                <path d="M600 10 C 560 70, 480 50, 400 120" />
-                <path d="M720 10 C 680 90, 520 40, 400 120" />
-                <circle r="3"><animateMotion dur="4s" repeatCount="indefinite" path="M80 10 C 120 90, 280 40, 400 120"/></circle>
-                <circle r="3"><animateMotion dur="5s" repeatCount="indefinite" path="M720 10 C 680 90, 520 40, 400 120"/></circle>
-              </svg>
-            </div>
-
-            <div class="feed" id="live-feed" aria-live="polite"></div>
           </div>
         </div>
       </section>
