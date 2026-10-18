@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>How do I show love, and how do I want it back? · Love Languages · Reflecta</title>
+    <meta
+      name="description"
+      content="Love Languages by Reflecta: see how you give love, how you most like to receive it, and where you and someone you love speak differently."
+    />
+    <meta name="theme-color" content="#f6f2ec" />
+    <link rel="canonical" href="https://reflecta.app/assessments/love-languages/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="How do I show love, and how do I want it back? · Reflecta" />
+    <meta property="og:description" content="Love Languages: see how you give love and how you want it back." />
+    <meta property="og:image" content="https://reflecta.app/icon.jpg" />
+    <link rel="icon" href="../../icon.jpg" type="image/jpeg" sizes="any" />
+    <link rel="apple-touch-icon" href="../../icon.jpg" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&family=Instrument+Serif:ital@0;1&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../assessment.css" />
+
+    <script>
+      // Open on the Reflecta thread unless motion is reduced or a moment is frozen (?t=).
+      try {
+        if (!matchMedia("(prefers-reduced-motion: reduce)").matches && !/[?&]t=/.test(location.search))
+          document.documentElement.classList.add("intro-on");
+      } catch (e) {}
+    </script>
+
+    <style>
+      /* ---------- scene: love sent in the wrong language ---------- */
+
+      .a-hero {
+        --glow-a: rgba(232, 119, 94, 0.22);
+        --glow-b: rgba(154, 132, 255, 0.2);
+      }
+
+      /* the routes between you: dashed misses first, then the translated ones */
+
+      .routes {
+        left: 0;
+        top: 0;
+        width: 560px;
+        height: 560px;
+        overflow: visible;
+      }
+
+      .routes path {
+        fill: none;
+        stroke-linecap: round;
+      }
+
+      .routes .old {
+        stroke: rgba(27, 23, 20, 0.22);
+        stroke-width: 1.6;
+        stroke-dasharray: 3 7;
+      }
+
+      .routes .new {
+        stroke: url(#route-grad);
+        stroke-width: 2.4;
+        stroke-dasharray: 320;
+      }
+
+      /* the two people */
+
+      .who {
+        top: 100px;
+        width: 152px;
+        height: 250px;
+      }
+
+      .who > * {
+        position: absolute;
+      }
+
+      #you {
+        left: 22px;
+      }
+
+      #sam {
+        left: 386px;
+      }
+
+      .who .glow {
+        left: 26px;
+        top: 4px;
+        width: 100px;
+        height: 90px;
+        border-radius: 50%;
+        background: radial-gradient(closest-side, rgba(154, 132, 255, 0.4), transparent);
+      }
+
+      #sam .glow {
+        background: radial-gradient(closest-side, rgba(232, 119, 94, 0.38), transparent);
+      }
+
+      .who .av {
+        left: 48px;
+        top: 20px;
+        display: grid;
+        place-items: center;
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #b9a6ff, #6b4ef0);
+        color: #fff;
+        font-size: 20px;
+        font-weight: 600;
+        box-shadow: 0 8px 18px -8px rgba(107, 78, 240, 0.6);
+      }
+
+      #sam .av {
+        background: linear-gradient(135deg, #f7c39b, #e8775e);
+        box-shadow: 0 8px 18px -8px rgba(232, 119, 94, 0.6);
+      }
+
+      .who .name {
+        left: 0;
+        right: 0;
+        top: 82px;
+        text-align: center;
+        font-family: var(--serif);
+        font-size: 25px;
+        line-height: 1;
+      }
+
+      /* what each of them speaks, revealed by the translation */
+
+      .who .lang,
+      .who .lang-q {
+        left: 18px;
+        right: 18px;
+        top: 136px;
+      }
+
+      .lang .s-label {
+        display: block;
+        font-size: 10.5px;
+      }
+
+      .lang b {
+        display: block;
+        margin: 3px 0 11px;
+        font-size: 15px;
+        font-weight: 500;
+        color: var(--ink);
+        white-space: nowrap;
+      }
+
+      .lang b.want {
+        margin-bottom: 0;
+        color: var(--violet);
+      }
+
+      #sam .lang b.want {
+        color: var(--coral);
+      }
+
+      .lang-q {
+        display: grid;
+        gap: 8px;
+        padding-top: 4px;
+      }
+
+      .lang-q i {
+        display: block;
+        height: 9px;
+        border-radius: 5px;
+        background: var(--paper-2);
+      }
+
+      .lang-q i:nth-child(2) {
+        width: 70%;
+      }
+
+      .lang-q i:nth-child(3) {
+        width: 85%;
+        margin-top: 10px;
+      }
+
+      .lang-q i:nth-child(4) {
+        width: 55%;
+      }
+
+      /* the sockets: the one shape each of them receives love in */
+
+      .sock {
+        top: 70px;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background: var(--paper);
+        border: 1px solid var(--line-2);
+        box-shadow: inset 0 2px 6px rgba(27, 23, 20, 0.12), 0 6px 14px -8px rgba(27, 23, 20, 0.3);
+        color: var(--violet);
+      }
+
+      #you .sock {
+        left: 122px;
+      }
+
+      #sam .sock {
+        left: -30px;
+        color: var(--coral);
+      }
+
+      .sock svg {
+        position: absolute;
+        inset: 0;
+        margin: auto;
+        width: 30px;
+        height: 30px;
+        fill: none;
+        stroke: currentColor;
+        stroke-width: 2;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+
+      .sock .ring,
+      .sock .miss {
+        position: absolute;
+        inset: -6px;
+        border-radius: 50%;
+      }
+
+      .sock .ring {
+        box-shadow: 0 0 0 2px var(--violet-2), 0 0 26px rgba(154, 132, 255, 0.8);
+      }
+
+      #sam .sock .ring {
+        box-shadow: 0 0 0 2px var(--coral-2), 0 0 26px rgba(232, 119, 94, 0.75);
+      }
+
+      .sock .miss {
+        box-shadow: 0 0 0 2px rgba(232, 119, 94, 0.85);
+      }
+
+      /* love in flight: pills that ride the routes (offset-path set from the SVG in JS) */
+
+      .tok {
+        left: 0;
+        top: 0;
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+        padding: 5px 12px 5px 5px;
+        border-radius: 999px;
+        background: var(--card);
+        border: 1px solid var(--line);
+        box-shadow: var(--shadow);
+        font-size: 12.5px;
+        font-weight: 500;
+        color: var(--ink);
+        white-space: nowrap;
+        offset-anchor: center;
+        offset-rotate: 0deg;
+      }
+
+      .tok i {
+        display: grid;
+        place-items: center;
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        background: rgba(232, 119, 94, 0.16);
+        font-style: normal;
+        font-size: 13px;
+      }
+
+      .tok.gift i {
+        background: rgba(240, 181, 74, 0.22);
+      }
+
+      .tok.match {
+        border-color: rgba(107, 78, 240, 0.3);
+        box-shadow: 0 0 0 3px rgba(154, 132, 255, 0.18), var(--shadow);
+      }
+
+      .tok.match i {
+        background: rgba(107, 78, 240, 0.14);
+      }
+
+      /* Reflecta steps in */
+
+      .tr {
+        left: 0;
+        right: 0;
+        top: 30px;
+        width: max-content;
+        margin: 0 auto;
+        display: grid;
+        padding: 0;
+        overflow: hidden;
+      }
+
+      .tr span {
+        grid-area: 1 / 1;
+        padding: 8px 14px;
+        text-align: center;
+      }
+
+      .tr .spark {
+        color: var(--violet);
+        margin-right: 4px;
+      }
+
+      #wish {
+        left: 236px;
+        top: 382px;
+        max-width: 262px;
+        transform-origin: 100% 0;
+      }
+
+      .wish-from {
+        display: block;
+        margin-bottom: 2px;
+        font-size: 11px;
+        color: var(--muted);
+      }
+
+      /* side by side: what each of them wants most */
+
+      .compare {
+        left: 60px;
+        top: 382px;
+        width: 440px;
+        padding: 14px 20px 16px;
+      }
+
+      .compare .row {
+        display: grid;
+        grid-template-columns: 1fr 112px 1fr;
+        align-items: center;
+        gap: 10px;
+        height: 19px;
+        font-size: 12px;
+        color: var(--ink-2);
+      }
+
+      .compare .row + .row {
+        margin-top: 6px;
+      }
+
+      .compare .head {
+        height: auto;
+        margin-bottom: 10px;
+        font-size: 13px;
+        font-weight: 500;
+        color: var(--ink);
+      }
+
+      .compare .head span:first-child {
+        text-align: right;
+      }
+
+      .compare .head .s-label {
+        text-align: center;
+        font-size: 10px;
+        font-weight: 400;
+      }
+
+      .compare .lbl {
+        text-align: center;
+        white-space: nowrap;
+      }
+
+      .compare .row > i {
+        display: flex;
+        height: 6px;
+        border-radius: 3px;
+        background: var(--paper-2);
+      }
+
+      .compare .l {
+        justify-content: flex-end;
+      }
+
+      .compare .row > i b {
+        display: block;
+        width: var(--v);
+        height: 100%;
+        border-radius: 3px;
+        background: rgba(27, 23, 20, 0.22);
+      }
+
+      .compare .l b {
+        transform-origin: 100% 50%;
+      }
+
+      .compare .r b {
+        transform-origin: 0 50%;
+      }
+
+      .compare .l b.top {
+        background: linear-gradient(270deg, var(--violet-2), var(--violet));
+      }
+
+      .compare .r b.top {
+        background: linear-gradient(90deg, var(--coral-2), var(--coral));
+      }
+    </style>
+  </head>
+
+  <body>
+    <header class="site-header" id="site-header">
+      <div class="wrap header-inner">
+        <a class="brand-link" href="../../" aria-label="Reflecta home"><img src="../../icon.jpg" alt="" width="32" height="32" />Reflecta</a>
+        <nav class="nav" aria-label="Primary">
+          <a href="../../#assessments">Library</a>
+          <a href="../../#how">How it works</a>
+          <a href="../../#journey">Journey</a>
+          <a href="../../#support">Support</a>
+          <a class="btn btn-primary" href="../../#assessments">Start reflecting</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="a-hero" aria-labelledby="title">
+        <div class="wrap a-hero-grid">
+          <div>
+            <p class="crumbs"><a href="../../#assessments">← Library</a><span class="cat">Relationships</span></p>
+            <h1 id="title">How do I show love, <em>and how do I want it back?</em></h1>
+            <p class="lead">
+              You fill their car with gas and fix the sink. They say they never hear that you care.
+              You're both loving hard, just in different languages. <strong>Love Languages</strong> shows
+              how you give love and how you most like to receive it, and it works well taken together.
+            </p>
+            <div class="ctas">
+              <a class="btn btn-primary" href="../../#how">See how Reflecta works <span class="arrow">→</span></a>
+              <a class="btn btn-ghost" href="../../#assessments">All questions</a>
+            </div>
+            <ul class="hero-meta">
+              <li>Reflecta Original</li>
+              <li>Solo or together</li>
+              <li>Not a diagnosis</li>
+            </ul>
+          </div>
+
+          <figure class="scene-fig">
+            <div class="stage-wrap">
+              <div class="stage" id="stage" aria-hidden="true">
+                <div class="scene">
+                  <svg class="routes" viewBox="0 0 560 560">
+                    <defs>
+                      <linearGradient id="route-grad" x1="174" y1="0" x2="386" y2="0" gradientUnits="userSpaceOnUse">
+                        <stop offset="0" stop-color="#9a84ff" />
+                        <stop offset="1" stop-color="#f2a084" />
+                      </linearGradient>
+                    </defs>
+                    <path class="old anim-only" id="oldTop" d="M174 200 Q280 10 386 200" />
+                    <path class="old anim-only" id="oldBot" d="M386 200 Q280 390 174 200" />
+                    <path class="new" id="newTop" d="M174 200 C214 92 346 92 386 200" />
+                    <path class="new" id="newBot" d="M386 200 C346 308 214 308 174 200" />
+                  </svg>
+
+                  <div class="s-card who" id="you">
+                    <span class="glow" id="youGlow"></span>
+                    <span class="av" id="youAv">Y</span>
+                    <span class="name">You</span>
+                    <span class="lang-q anim-only" id="youQ"><i></i><i></i><i></i><i></i></span>
+                    <span class="lang" id="youLang">
+                      <span class="s-label">Gives</span><b>Acts of service</b>
+                      <span class="s-label">Wants</span><b class="want">Words</b>
+                    </span>
+                    <span class="sock" id="youSock">
+                      <span class="miss anim-only" id="youMiss"></span>
+                      <span class="ring" id="youRing"></span>
+                      <svg viewBox="0 0 32 32"><path d="M8 7h16a4 4 0 0 1 4 4v8a4 4 0 0 1-4 4h-9l-6 5v-5H8a4 4 0 0 1-4-4v-8a4 4 0 0 1 4-4z" /></svg>
+                    </span>
+                  </div>
+
+                  <div class="s-card who" id="sam">
+                    <span class="glow" id="samGlow"></span>
+                    <span class="av" id="samAv">S</span>
+                    <span class="name">Sam</span>
+                    <span class="lang-q anim-only" id="samQ"><i></i><i></i><i></i><i></i></span>
+                    <span class="lang" id="samLang">
+                      <span class="s-label">Gives</span><b>Gifts</b>
+                      <span class="s-label">Wants</span><b class="want">Quality time</b>
+                    </span>
+                    <span class="sock" id="samSock">
+                      <span class="miss anim-only" id="samMiss"></span>
+                      <span class="ring" id="samRing"></span>
+                      <svg viewBox="0 0 32 32"><circle cx="16" cy="16" r="11" /><path d="M16 10v6l4 3" /></svg>
+                    </span>
+                  </div>
+
+                  <div class="tok anim-only" id="act1" data-route="oldTop"><i>🔧</i>Fixed the sink</div>
+                  <div class="tok anim-only" id="act2" data-route="oldTop"><i>⛽</i>Filled the gas</div>
+                  <div class="tok gift anim-only" id="gift" data-route="oldBot"><i>🎁</i>Got you this</div>
+                  <div class="tok match anim-only" id="sat" data-route="newTop"><i>📅</i>Saturday, just us</div>
+                  <div class="tok match anim-only" id="proud" data-route="newBot"><i>💬</i>I'm proud of you</div>
+
+                  <div class="s-bub in anim-only" id="wish"><span class="wish-from">Sam</span>I just wish we spent time together.</div>
+
+                  <div class="s-chip tr" id="tr">
+                    <span class="anim-only" id="tr1"><b class="spark">✦</b>Reflecta · translating…</span>
+                    <span id="tr2"><b class="spark">✦</b>Reflecta · translated</span>
+                  </div>
+
+                  <div class="s-card compare" id="compare">
+                    <div class="row head"><span>You</span><span class="s-label">Wants most</span><span>Sam</span></div>
+                    <div class="row"><i class="l"><b class="top" style="--v: 88%"></b></i><span class="lbl">Words</span><i class="r"><b style="--v: 44%"></b></i></div>
+                    <div class="row"><i class="l"><b style="--v: 52%"></b></i><span class="lbl">Quality time</span><i class="r"><b class="top" style="--v: 92%"></b></i></div>
+                    <div class="row"><i class="l"><b style="--v: 38%"></b></i><span class="lbl">Acts of service</span><i class="r"><b style="--v: 40%"></b></i></div>
+                    <div class="row"><i class="l"><b style="--v: 22%"></b></i><span class="lbl">Gifts</span><i class="r"><b style="--v: 30%"></b></i></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <figcaption class="scene-cap">
+              <span data-t0="0.3" data-t1="3.6">You show love by fixing things.</span>
+              <span data-t0="3.8" data-t1="6.6">Sam shows it too. Neither one lands.</span>
+              <span data-t0="6.8" data-t1="9.6">Same love, different languages.</span>
+              <span data-t0="9.8" data-t1="12.4">Love Languages helps you <em>speak theirs.</em></span>
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="section section-alt" aria-labelledby="familiar">
+        <div class="wrap">
+          <div class="section-head">
+            <p class="kicker reveal">Sounds familiar?</p>
+            <h2 class="reveal d1" id="familiar">Trying hard, <em>still missing.</em></h2>
+          </div>
+          <div class="moments">
+            <div class="moment reveal"><q>But I did the dishes.</q><p>You showed up the way you know how, and it didn't seem to count.</p></div>
+            <div class="moment reveal d1"><q>You never say it.</q><p>They need to hear it. You thought everything you do already said it.</p></div>
+            <div class="moment reveal d2"><q>I don't need more stuff.</q><p>A thoughtful gift lands flat, when a quiet evening would have meant everything.</p></div>
+            <div class="moment reveal d3"><q>Together, but not really.</q><p>Hours in the same room, both on your phones, and still no time spent.</p></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="looks">
+        <div class="wrap">
+          <div class="section-head">
+            <p class="kicker reveal">What it looks at</p>
+            <h2 class="reveal d1" id="looks">How love moves, <em>both ways.</em></h2>
+          </div>
+          <div class="dims">
+            <div class="dim reveal"><span class="ix">01</span><div><h3>Words of affirmation</h3><p>You might rarely say it out loud and still need to hear it often. How much words carry, given and received.</p></div></div>
+            <div class="dim reveal d1"><span class="ix">02</span><div><h3>Quality time</h3><p>Whether undivided attention is what you offer, what you quietly wait for, or both.</p></div></div>
+            <div class="dim reveal"><span class="ix">03</span><div><h3>Acts of service</h3><p>Caring by doing, and whether help feels like love when someone does it for you.</p></div></div>
+            <div class="dim reveal d1"><span class="ix">04</span><div><h3>Gifts</h3><p>The small things you pick out for others, and whether receiving one feels personal or just nice.</p></div></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-alt" aria-labelledby="get">
+        <div class="wrap get-grid">
+          <div>
+            <p class="kicker reveal">What you get back</p>
+            <h2 class="reveal d1" id="get">How you love, <em>in plain words.</em></h2>
+            <ul class="get-list">
+              <li class="reveal"><span><b>A headline insight</b> that names how you give and what you need back.</span></li>
+              <li class="reveal d1"><span><b>What kept showing up</b> across your answers.</span></li>
+              <li class="reveal d2"><span><b>Where to put your energy next</b>, so it's useful, not just interesting.</span></li>
+              <li class="reveal d3"><span><b>Take it together</b>: invite your partner and see where your languages meet.</span></li>
+            </ul>
+          </div>
+          <div class="s-dark insight-card reveal d1">
+            <span class="k">Example insight · Love Languages</span>
+            <h3>You give by doing, and you feel loved through words.</h3>
+            <div class="chips"><span>shows care through help</span><span>listens for kind words</span><span>shy about gifts</span></div>
+            <div class="bars">
+              <div class="bar">Words<i style="--v: 84%"></i></div>
+              <div class="bar">Quality time<i style="--v: 58%"></i></div>
+              <div class="bar">Acts of service<i style="--v: 72%"></i></div>
+              <div class="bar">Gifts<i style="--v: 26%"></i></div>
+            </div>
+            <p class="note">Illustrative example. Your insight is built from your own answers.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="a-closing" aria-labelledby="closing">
+        <div class="wrap reveal">
+          <h2 id="closing">Keep loving hard, <em>just in their language.</em></h2>
+          <p class="lead">Take Love Languages in Reflecta, on your own or with someone you love.</p>
+          <div class="ctas">
+            <a class="btn btn-primary" href="../../#how">See how Reflecta works <span class="arrow">→</span></a>
+            <a class="btn btn-ghost" href="../../#assessments">Back to the library</a>
+          </div>
+          <p class="disclaimer">Reflecta offers assistive, personal insight. It isn't a medical device and doesn't diagnose or treat any condition.</p>
+        </div>
+      </section>
+
+      <section class="more" aria-labelledby="more">
+        <div class="wrap">
+          <h2 class="reveal" id="more">Other questions people <em>bring.</em></h2>
+          <div class="more-grid">
+            <a class="reveal" href="../attachment-style/"><span class="q">Why do I need them to text back so fast?</span><span class="n">Attachment Style →</span></a>
+            <a class="reveal d1" href="../emotional-needs/"><span class="q">What do I actually need from the people I love?</span><span class="n">Emotional Needs →</span></a>
+            <a class="reveal d2" href="../overthinking-patterns/"><span class="q">Why can't my mind just switch off?</span><span class="n">Overthinking Patterns →</span></a>
+            <a class="reveal d3" href="../shadow-traits/"><span class="q">Why do I react before I can think?</span><span class="n">Shadow Traits →</span></a>
+            <a class="reveal d3" href="../burnout-risk/"><span class="q">Am I tired, or running on empty?</span><span class="n">Burnout Risk →</span></a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="wrap footer-grid">
+        <div class="footer-brand">
+          <div class="name">Reflecta</div>
+          <p>Honest questions. A clearer you.</p>
+        </div>
+        <div class="footer-links" aria-label="Footer">
+          <a href="../../#assessments">Library</a>
+          <a href="../../#how">How it works</a>
+          <a href="../../#support">Support</a>
+          <a href="../../#privacy">Privacy</a>
+          <a href="../../#terms">Terms</a>
+        </div>
+        <p class="footer-meta">© <span id="year"></span> Reflecta. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="../../thread.js"></script>
+    <script src="../assessment.js"></script>
+    <script>
+      /* Scene (13 s loop): You send acts of service along the dashed route and they bounce off
+       * Sam's clock socket · Sam's gift bounces off your speech socket · Sam says what's missing ·
+       * Reflecta translates: each card shows what they give and want, the routes re-draw, and
+       * "Saturday, just us" and "I'm proud of you" click into place · both light up · the two
+       * of you, side by side. */
+      Scene(13, function (s) {
+        var $ = function (id) {
+          return document.getElementById(id);
+        };
+
+        // Every pill rides the route named in its data-route.
+        Array.prototype.forEach.call(document.querySelectorAll(".tok"), function (el) {
+          el.style.offsetPath = "path('" + $(el.dataset.route).getAttribute("d") + "')";
+        });
+
+        // A love that misses: travels most of the way, knocks the socket and falls away.
+        function miss(el, t, spin) {
+          s.keys(el, [
+            { t: t, offsetDistance: "4%", translate: "0 0", rotate: "0deg", easing: s.E.inout },
+            { t: t + 1.2, offsetDistance: "82%", translate: "0 0", rotate: "0deg", easing: s.E.out },
+            { t: t + 1.75, offsetDistance: "70%", translate: "0 40px", rotate: spin },
+          ]);
+          s.keys(el, [{ t: t, opacity: 0 }, { t: t + 0.25, opacity: 1 }, { t: t + 1.4, opacity: 1 }, { t: t + 1.75, opacity: 0 }]);
+        }
+        // A love that lands: rides all the way in and shrinks into the socket.
+        function land(el, t) {
+          s.keys(el, [
+            { t: t, offsetDistance: "4%", scale: 1, easing: s.E.inout },
+            { t: t + 1.1, offsetDistance: "100%", scale: 1, easing: s.E.inq },
+            { t: t + 1.35, scale: 0.25 },
+          ]);
+          s.keys(el, [{ t: t, opacity: 0 }, { t: t + 0.25, opacity: 1 }, { t: t + 1.15, opacity: 1 }, { t: t + 1.35, opacity: 0 }]);
+        }
+        // The socket shrugs off a miss: a shake and a coral flash, once per hit.
+        function reject(sock, flash, hits) {
+          var shake = [{ t: 0, translate: "0 0" }];
+          var glow = [{ t: 0, opacity: 0 }];
+          hits.forEach(function (t) {
+            shake.push({ t: t, translate: "0 0" }, { t: t + 0.08, translate: "-5px 0" }, { t: t + 0.16, translate: "5px 0" }, { t: t + 0.24, translate: "-3px 0" }, { t: t + 0.32, translate: "0 0" });
+            glow.push({ t: t, opacity: 0 }, { t: t + 0.08, opacity: 1 }, { t: t + 0.6, opacity: 0 });
+          });
+          s.keys(sock, shake);
+          s.keys(flash, glow);
+        }
+        // …and takes one in: a little bump, the glow ring, the person lighting up.
+        function accept(sock, ring, av, glow, t) {
+          s.keys(sock, [{ t: t, scale: 1, easing: s.E.out }, { t: t + 0.15, scale: 1.16, easing: s.E.spring }, { t: t + 0.6, scale: 1 }]);
+          s.keys(sock, [{ t: t, color: "#877c72" }, { t: t + 0.3, color: getComputedStyle(sock).color }]);
+          s.at(ring, t, { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1 }, 0.5, s.E.spring);
+          s.at(av, t + 0.1, { filter: "saturate(0.25) brightness(1.08)", opacity: 0.7 }, { filter: "saturate(1) brightness(1)", opacity: 1 }, 0.6, s.E.out);
+          s.at(glow, t + 0.1, { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1 }, 0.8, s.E.out);
+        }
+
+        s.pop($("you"), 0.1, { s: 0.9, d: 0.7 });
+        s.pop($("sam"), 0.25, { s: 0.9, d: 0.7 });
+
+        // the old routes: you try, and try again
+        ["oldTop", "oldBot"].forEach(function (id, k) {
+          s.keys($(id), [{ t: 0.5 + k * 0.2, opacity: 0 }, { t: 1.0 + k * 0.2, opacity: 1 }, { t: 8.0, opacity: 1 }, { t: 8.5, opacity: 0 }]);
+        });
+        miss($("act1"), 1.0, "-14deg");
+        miss($("act2"), 2.4, "-10deg");
+        miss($("gift"), 4.3, "14deg");
+        reject($("samSock"), $("samMiss"), [2.2, 3.6]);
+        reject($("youSock"), $("youMiss"), [5.5]);
+
+        // what Sam actually wants
+        s.win($("wish"), 6.0, 8.6, { from: { opacity: 0, scale: 0.7, filter: "blur(6px)" }, to: { opacity: 1, scale: 1, filter: "blur(0px)" }, out: { opacity: 0, scale: 0.94, filter: "blur(6px)" }, ease: s.E.spring, i: 0.6, x: 0.4 });
+
+        // Reflecta translates
+        var swap = { from: { opacity: 0, translate: "0 12px", filter: "blur(4px)" }, out: { opacity: 0, translate: "0 -12px", filter: "blur(4px)" }, i: 0.35, x: 0.3 };
+        s.pop($("tr"), 6.9, { s: 0.8 });
+        s.win($("tr1"), 6.9, 8.2, swap);
+        s.keys($("tr2"), [{ t: 8.5, opacity: 0, translate: "0 12px", filter: "blur(4px)", easing: s.E.out }, { t: 8.9, opacity: 1, translate: "0 0", filter: "blur(0px)" }]);
+        s.win($("youQ"), 0.6, 7.3, { x: 0.3 });
+        s.win($("samQ"), 0.75, 7.6, { x: 0.3 });
+        s.pop($("youLang"), 7.6, { s: 0.85 });
+        s.pop($("samLang"), 7.9, { s: 0.85 });
+
+        // the new routes draw in, and this time love lands
+        ["newTop", "newBot"].forEach(function (id, k) {
+          s.keys($(id), [{ t: 8.2 + k * 0.25, strokeDashoffset: 320, easing: s.E.inout }, { t: 9.0 + k * 0.25, strokeDashoffset: 0 }]);
+        });
+        land($("sat"), 8.8);
+        land($("proud"), 9.3);
+        accept($("samSock"), $("samRing"), $("samAv"), $("samGlow"), 9.95);
+        accept($("youSock"), $("youRing"), $("youAv"), $("youGlow"), 10.45);
+
+        // side by side
+        s.keys($("compare"), [{ t: 10.7, opacity: 0, translate: "0 16px", filter: "blur(6px)", easing: s.E.out }, { t: 11.3, opacity: 1, translate: "0 0", filter: "blur(0px)" }]);
+        Array.prototype.forEach.call(document.querySelectorAll(".compare .row > i b"), function (b, k) {
+          s.at(b, 11.0 + Math.floor(k / 2) * 0.1, { scale: "0 1" }, { scale: "1 1" }, 0.8, s.E.out);
+        });
+      });
+    </script>
+  </body>
+</html>

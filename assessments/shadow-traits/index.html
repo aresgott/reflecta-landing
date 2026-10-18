@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Why do I react before I can think? · Shadow Traits · Reflecta</title>
+    <meta
+      name="description"
+      content="Shadow Traits by Reflecta: understand the defensiveness, pride and self-protection that move before you can think, and what sits underneath them."
+    />
+    <meta name="theme-color" content="#f6f2ec" />
+    <link rel="canonical" href="https://reflecta.app/assessments/shadow-traits/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Why do I react before I can think? · Reflecta" />
+    <meta property="og:description" content="Shadow Traits: understand the parts of you that move first." />
+    <meta property="og:image" content="https://reflecta.app/icon.jpg" />
+    <link rel="icon" href="../../icon.jpg" type="image/jpeg" sizes="any" />
+    <link rel="apple-touch-icon" href="../../icon.jpg" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&family=Instrument+Serif:ital@0;1&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../assessment.css" />
+
+    <script>
+      // Open on the Reflecta thread unless motion is reduced or a moment is frozen (?t=).
+      try {
+        if (!matchMedia("(prefers-reduced-motion: reduce)").matches && !/[?&]t=/.test(location.search))
+          document.documentElement.classList.add("intro-on");
+      } catch (e) {}
+    </script>
+
+    <style>
+      /* ---------- scene: the reply that beat the thought ---------- */
+
+      .a-hero {
+        --glow-a: rgba(107, 78, 240, 0.24);
+        --glow-b: rgba(60, 40, 90, 0.12);
+      }
+
+      /* the light overhead */
+
+      .beam {
+        left: 0;
+        top: 0;
+        width: 560px;
+        height: 300px;
+        filter: blur(8px);
+      }
+
+      .glow {
+        left: 130px;
+        top: -140px;
+        width: 300px;
+        height: 280px;
+        border-radius: 50%;
+        background: radial-gradient(closest-side, rgba(255, 238, 205, 0.95), rgba(255, 238, 205, 0));
+      }
+
+      .bulb {
+        left: 272px;
+        top: 6px;
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        background: #fff7e2;
+        box-shadow:
+          0 0 0 4px rgba(255, 232, 190, 0.5),
+          0 0 24px 8px rgba(255, 214, 150, 0.75);
+      }
+
+      /* the messages and the shadows they cast */
+
+      .shade {
+        border-radius: 20px;
+        background: linear-gradient(180deg, rgba(52, 34, 100, 0.5) 35%, rgba(52, 34, 100, 0));
+        filter: blur(3px);
+        transform-origin: 50% 0;
+      }
+
+      #shIn {
+        left: 54px;
+        top: 70px;
+        width: 140px;
+        height: 100px;
+        transform: skewX(-24deg);
+        opacity: 0.75;
+      }
+
+      #shOut {
+        right: 60px;
+        top: 138px;
+        width: 200px;
+        height: 118px;
+        transform: skewX(24deg);
+        background: linear-gradient(180deg, rgba(60, 32, 130, 0.62) 35%, rgba(60, 32, 130, 0));
+      }
+
+      #msgIn {
+        left: 44px;
+        top: 56px;
+        transform-origin: 0 100%;
+      }
+
+      #msgOut {
+        right: 44px;
+        top: 124px;
+        width: 232px;
+        transform-origin: 100% 100%;
+      }
+
+      #why {
+        left: 44px;
+        top: 208px;
+      }
+
+      /* trigger → reaction */
+
+      .tl {
+        left: 60px;
+        top: 262px;
+        width: 440px;
+        height: 60px;
+      }
+
+      .tl > * {
+        position: absolute;
+      }
+
+      .tl-line {
+        left: 0;
+        right: 0;
+        top: 29px;
+        border-top: 2px dashed var(--line-2);
+      }
+
+      .tl-gap {
+        left: 0;
+        top: 28px;
+        width: 440px;
+        height: 4px;
+        border-radius: 2px;
+        background: linear-gradient(90deg, var(--coral-2), var(--violet));
+        transform-origin: 50% 50%;
+      }
+
+      .tl-mark {
+        top: 30px;
+        width: 0;
+        height: 0;
+      }
+
+      .tl-mark i {
+        position: absolute;
+        left: -7px;
+        top: -7px;
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        background: var(--card);
+        border: 3px solid var(--coral);
+        box-shadow: 0 3px 8px rgba(27, 23, 20, 0.2);
+      }
+
+      .tl-mark span {
+        position: absolute;
+        top: 14px;
+        font-size: 13px;
+        color: var(--muted);
+        white-space: nowrap;
+      }
+
+      #mTrig {
+        left: 0;
+      }
+
+      #mTrig span {
+        right: 0;
+      }
+
+      #mReac {
+        left: 440px;
+      }
+
+      #mReac i {
+        border-color: var(--violet);
+      }
+
+      #mReac span {
+        left: 0;
+      }
+
+      .tl-time {
+        left: 220px;
+        top: 2px;
+        height: 20px;
+        transform: translateX(-50%);
+      }
+
+      .tl-time span {
+        position: absolute;
+        left: 0;
+        top: 0;
+        transform: translateX(-50%);
+        font-family: var(--serif);
+        font-size: 19px;
+        line-height: 20px;
+        color: var(--ink);
+        white-space: nowrap;
+      }
+
+      .tl-time span em {
+        color: var(--violet);
+      }
+
+      /* what was in the gap: one layer deeper each step */
+
+      .layer {
+        top: 36px;
+        width: 0;
+      }
+
+      .layer .stem {
+        position: absolute;
+        left: -1px;
+        top: 0;
+        width: 2px;
+        height: var(--h);
+        background: linear-gradient(var(--violet-2), rgba(154, 132, 255, 0.25));
+        transform-origin: 50% 0;
+      }
+
+      .layer .tick {
+        position: absolute;
+        left: -4px;
+        top: -10px;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--violet-2);
+      }
+
+      .layer .s-chip {
+        position: absolute;
+        left: 0;
+        top: var(--h);
+        transform: translateX(-50%);
+      }
+
+      .layer .s-chip b {
+        font-weight: 500;
+        color: var(--ink);
+      }
+
+      #c1 {
+        left: 80px;
+        --h: 28px;
+      }
+
+      #c2 {
+        left: 220px;
+        --h: 64px;
+      }
+
+      #c2 .s-chip {
+        background: #ece6ff;
+        border-color: rgba(107, 78, 240, 0.22);
+      }
+
+      #c3 {
+        left: 360px;
+        --h: 100px;
+      }
+
+      #c3 .s-chip {
+        background: #2c2150;
+        border-color: transparent;
+        color: rgba(243, 238, 248, 0.8);
+      }
+
+      #c3 .s-chip b {
+        color: #f3eef8;
+      }
+
+      /* how you're wired */
+
+      .wired {
+        left: 40px;
+        top: 452px;
+        width: 480px;
+        padding: 14px 18px 16px;
+        border-radius: 18px;
+      }
+
+      .wired .cols {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 16px;
+        margin-top: 10px;
+      }
+
+      .wired .col {
+        font-size: 12.5px;
+        color: var(--ink-2);
+        white-space: nowrap;
+      }
+
+      .wired .col i {
+        display: block;
+        height: 5px;
+        margin-top: 7px;
+        border-radius: 3px;
+        background: var(--paper-2);
+        overflow: hidden;
+      }
+
+      .wired .col i b {
+        display: block;
+        width: var(--v);
+        height: 100%;
+        border-radius: 3px;
+        background: linear-gradient(90deg, var(--coral-2), var(--violet-2));
+        transform-origin: 0 50%;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header class="site-header" id="site-header">
+      <div class="wrap header-inner">
+        <a class="brand-link" href="../../" aria-label="Reflecta home"><img src="../../icon.jpg" alt="" width="32" height="32" />Reflecta</a>
+        <nav class="nav" aria-label="Primary">
+          <a href="../../#assessments">Library</a>
+          <a href="../../#how">How it works</a>
+          <a href="../../#journey">Journey</a>
+          <a href="../../#support">Support</a>
+          <a class="btn btn-primary" href="../../#assessments">Start reflecting</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="a-hero" aria-labelledby="title">
+        <div class="wrap a-hero-grid">
+          <div>
+            <p class="crumbs"><a href="../../#assessments">← Library</a><span class="cat">Self-growth</span></p>
+            <h1 id="title">Why do I react <em>before I can think?</em></h1>
+            <p class="lead">
+              A small comment lands, and before you've decided anything you've already snapped back.
+              Later you wonder where that came from. <strong>Shadow Traits</strong> looks at the parts of
+              you that move first: defensiveness, pride, the need to protect yourself.
+            </p>
+            <div class="ctas">
+              <a class="btn btn-primary" href="../../#how">See how Reflecta works <span class="arrow">→</span></a>
+              <a class="btn btn-ghost" href="../../#assessments">All questions</a>
+            </div>
+            <ul class="hero-meta">
+              <li>Reflecta Original</li>
+              <li>Solo or together</li>
+              <li>Not a diagnosis</li>
+            </ul>
+          </div>
+
+          <figure class="scene-fig">
+            <div class="stage-wrap">
+              <div class="stage" id="stage" aria-hidden="true">
+                <div class="scene">
+                  <svg class="beam" id="beam" viewBox="0 0 560 300">
+                    <defs>
+                      <linearGradient id="beamG" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0" stop-color="#fff3da" stop-opacity="0.9" />
+                        <stop offset="1" stop-color="#fff3da" stop-opacity="0" />
+                      </linearGradient>
+                    </defs>
+                    <polygon points="268,14 292,14 540,300 20,300" fill="url(#beamG)" />
+                  </svg>
+                  <div class="glow" id="glow"></div>
+                  <div class="bulb" id="bulb"></div>
+
+                  <div class="shade" id="shIn"></div>
+                  <div class="s-bub in" id="msgIn">You forgot again?</div>
+                  <div class="shade" id="shOut"></div>
+                  <div class="s-bub out" id="msgOut"><span id="outTxt">Wow. Nothing I do is ever enough for you.</span></div>
+
+                  <div class="s-thought anim-only" id="why">where did that come from?</div>
+
+                  <div class="tl" id="tl">
+                    <div class="tl-line"></div>
+                    <div class="tl-gap" id="gap"></div>
+                    <div class="tl-time">
+                      <span class="anim-only" id="tA">0.4 s</span>
+                      <span class="anim-only" id="tB">◂◂ slowing it down</span>
+                      <span id="tC">0.4 s, <em>slowed down</em></span>
+                    </div>
+                    <div class="tl-mark" id="mTrig"><i></i><span>trigger</span></div>
+                    <div class="tl-mark" id="mReac"><i></i><span>reaction</span></div>
+
+                    <div class="layer" id="c1"><i class="tick"></i><i class="stem"></i><span class="s-chip"><b>felt</b> criticized</span></div>
+                    <div class="layer" id="c2"><i class="tick"></i><i class="stem"></i><span class="s-chip">old hurt: <b>never good enough</b></span></div>
+                    <div class="layer" id="c3"><i class="tick"></i><i class="stem"></i><span class="s-chip"><b>protect</b> yourself</span></div>
+                  </div>
+
+                  <div class="s-card wired" id="wired">
+                    <div class="s-label">How you're wired</div>
+                    <div class="cols">
+                      <div class="col">Defensiveness<i><b id="w1" style="--v: 82%"></b></i></div>
+                      <div class="col">Pride protection<i><b id="w2" style="--v: 68%"></b></i></div>
+                      <div class="col">Emotional awareness<i><b id="w3" style="--v: 46%"></b></i></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <figcaption class="scene-cap">
+              <span data-t0="0.3" data-t1="2.9">A small comment lands.</span>
+              <span data-t0="3.1" data-t1="5.3">You've snapped back before you've decided anything.</span>
+              <span data-t0="5.5" data-t1="8.6">Slowed down, that half second is full.</span>
+              <span data-t0="8.9" data-t1="12.4">Shadow Traits shows you <em>what moves first.</em></span>
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="section section-alt" aria-labelledby="familiar">
+        <div class="wrap">
+          <div class="section-head">
+            <p class="kicker reveal">Sounds familiar?</p>
+            <h2 class="reveal d1" id="familiar">The reply is out <em>before you are.</em></h2>
+          </div>
+          <div class="moments">
+            <div class="moment reveal"><q>I didn't mean it like that.</q><p>The words came out sharper than what you actually felt.</p></div>
+            <div class="moment reveal d1"><q>Why am I so defensive?</q><p>A small note about something you did lands like a verdict on who you are.</p></div>
+            <div class="moment reveal d2"><q>I'm fine. Forget it.</q><p>Pulling away feels safer than admitting something stung.</p></div>
+            <div class="moment reveal d3"><q>Where did that come from?</q><p>Hours later you replay it and barely recognize the reaction.</p></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="looks">
+        <div class="wrap">
+          <div class="section-head">
+            <p class="kicker reveal">What it looks at</p>
+            <h2 class="reveal d1" id="looks">The parts of you <em>that move first.</em></h2>
+          </div>
+          <div class="dims">
+            <div class="dim reveal"><span class="ix">01</span><div><h3>Defensiveness</h3><p>How quickly you guard yourself when something sounds like criticism.</p></div></div>
+            <div class="dim reveal d1"><span class="ix">02</span><div><h3>Pride protection</h3><p>What you do, often without noticing, to avoid looking wrong, small, or not enough.</p></div></div>
+            <div class="dim reveal"><span class="ix">03</span><div><h3>Emotional awareness</h3><p>How well you can name what you feel while it's happening, not just afterwards.</p></div></div>
+            <div class="dim reveal d1"><span class="ix">04</span><div><h3>Triggers</h3><p>The kinds of moments that set your reactions off, and the older feelings they tend to touch.</p></div></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-alt" aria-labelledby="get">
+        <div class="wrap get-grid">
+          <div>
+            <p class="kicker reveal">What you get back</p>
+            <h2 class="reveal d1" id="get">Your reactions, <em>in plain words.</em></h2>
+            <ul class="get-list">
+              <li class="reveal"><span><b>A headline insight</b> that names what's going on for you.</span></li>
+              <li class="reveal d1"><span><b>What kept showing up</b> across your answers.</span></li>
+              <li class="reveal d2"><span><b>How you're wired</b>, across the parts of you that react first.</span></li>
+              <li class="reveal d3"><span><b>Where to put your energy next</b>, so there's a little more room before the snap.</span></li>
+            </ul>
+          </div>
+          <div class="s-dark insight-card reveal d1">
+            <span class="k">Example insight · Shadow Traits</span>
+            <h3>Criticism lands on your worth, so you protect it fast.</h3>
+            <div class="chips"><span>quick to defend</span><span>hates feeling not enough</span><span>softens once calm</span></div>
+            <div class="bars">
+              <div class="bar">Defensiveness<i style="--v: 82%"></i></div>
+              <div class="bar">Pride protection<i style="--v: 68%"></i></div>
+              <div class="bar">Awareness<i style="--v: 46%"></i></div>
+              <div class="bar">Repair<i style="--v: 74%"></i></div>
+            </div>
+            <p class="note">Illustrative example. Your insight is built from your own answers.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="a-closing" aria-labelledby="closing">
+        <div class="wrap reveal">
+          <h2 id="closing">Find the pause <em>before the snap.</em></h2>
+          <p class="lead">Take Shadow Traits in Reflecta, on your own or with someone you love.</p>
+          <div class="ctas">
+            <a class="btn btn-primary" href="../../#how">See how Reflecta works <span class="arrow">→</span></a>
+            <a class="btn btn-ghost" href="../../#assessments">Back to the library</a>
+          </div>
+          <p class="disclaimer">Reflecta offers assistive, personal insight. It isn't a medical device and doesn't diagnose or treat any condition.</p>
+        </div>
+      </section>
+
+      <section class="more" aria-labelledby="more">
+        <div class="wrap">
+          <h2 class="reveal" id="more">Other questions people <em>bring.</em></h2>
+          <div class="more-grid">
+            <a class="reveal" href="../attachment-style/"><span class="q">Why do I need them to text back so fast?</span><span class="n">Attachment Style →</span></a>
+            <a class="reveal d1" href="../emotional-needs/"><span class="q">What do I actually need from the people I love?</span><span class="n">Emotional Needs →</span></a>
+            <a class="reveal d2" href="../overthinking-patterns/"><span class="q">Why can't my mind just switch off?</span><span class="n">Overthinking Patterns →</span></a>
+            <a class="reveal d3" href="../burnout-risk/"><span class="q">Am I tired, or running on empty?</span><span class="n">Burnout Risk →</span></a>
+            <a class="reveal d3" href="../love-languages/"><span class="q">How do I show love, and how do I want it back?</span><span class="n">Love Languages →</span></a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="wrap footer-grid">
+        <div class="footer-brand">
+          <div class="name">Reflecta</div>
+          <p>Honest questions. A clearer you.</p>
+        </div>
+        <div class="footer-links" aria-label="Footer">
+          <a href="../../#assessments">Library</a>
+          <a href="../../#how">How it works</a>
+          <a href="../../#support">Support</a>
+          <a href="../../#privacy">Privacy</a>
+          <a href="../../#terms">Terms</a>
+        </div>
+        <p class="footer-meta">© <span id="year"></span> Reflecta. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="../../thread.js"></script>
+    <script src="../assessment.js"></script>
+    <script>
+      /* Scene (13 s loop): a light comes on overhead · "You forgot again?" lands with its shadow ·
+       * the reply's shadow shoots out first, the reply is typed in a blink and the light dips ·
+       * the timeline shows 0.4 s between trigger and reaction · it rewinds and stretches open,
+       * and three hidden layers drop into the gap · "How you're wired" fills in. */
+      Scene(13, function (s) {
+        var $ = function (id) {
+          return document.getElementById(id);
+        };
+
+        // the light: on, dimmed by the snap, brought back up for the slow look
+        s.pop($("bulb"), 0.1, { s: 0.4 });
+        var light = [
+          { t: 0.1, opacity: 0, easing: s.E.out },
+          { t: 0.9, opacity: 1 },
+          { t: 1.45, opacity: 1, easing: s.E.out },
+          { t: 1.8, opacity: 0.35 },
+          { t: 5.3, opacity: 0.35, easing: s.E.inout },
+          { t: 6.3, opacity: 1 },
+        ];
+        s.keys($("beam"), light);
+        s.keys($("glow"), light);
+
+        // the comment, and the shadow it casts
+        s.pop($("msgIn"), 0.6, { s: 0.85 });
+        s.keys($("shIn"), [{ t: 0.8, opacity: 0, scale: "1 0", easing: s.E.out }, { t: 1.4, opacity: 0.75, scale: "1 1" }]);
+
+        // trigger → reaction, squeezed into the middle of the line
+        s.keys($("tl"), [{ t: 0.9, opacity: 0, translate: "0 10px", easing: s.E.out }, { t: 1.4, opacity: 1, translate: "0 0" }]);
+        s.pop($("mTrig"), 1.0, { s: 0.4, d: 0.45 });
+        s.keys($("mTrig"), [{ t: 5.6, translate: "190px 0", easing: s.E.inout }, { t: 6.9, translate: "0 0" }]);
+        s.keys($("mReac"), [{ t: 5.6, translate: "-190px 0", easing: s.E.inout }, { t: 6.9, translate: "0 0" }]);
+        s.keys($("gap"), [
+          { t: 1.9, opacity: 0, scale: "0.136 1" },
+          { t: 2.2, opacity: 1, scale: "0.136 1" },
+          { t: 5.6, opacity: 1, scale: "0.136 1", easing: s.E.inout },
+          { t: 6.9, opacity: 1, scale: "1 1" },
+        ]);
+
+        // the shadow moves first; the words catch up
+        s.keys($("shOut"), [{ t: 1.45, opacity: 0, scale: "1 0", easing: s.E.out }, { t: 1.7, opacity: 1, scale: "1 1" }]);
+        s.pop($("msgOut"), 1.85, { s: 0.7, d: 0.45 });
+        s.type($("outTxt"), "Wow. Nothing I do is ever enough for you.", 1.9, 2.3);
+        s.pop($("mReac"), 1.95, { s: 0.4, d: 0.45 });
+        s.keys($("msgOut"), [{ t: 1.85, rotate: "0deg" }, { t: 1.95, rotate: "-1.5deg" }, { t: 2.1, rotate: "1deg" }, { t: 2.25, rotate: "0deg" }]);
+
+        // the time between them, then the rewind
+        var swap = { from: { opacity: 0, translate: "0 8px", filter: "blur(4px)" }, out: { opacity: 0, translate: "0 -8px", filter: "blur(4px)" }, i: 0.3, x: 0.3 };
+        s.win($("tA"), 2.0, 5.3, swap);
+        s.win($("tB"), 5.6, 6.8, swap);
+        s.keys($("tC"), [{ t: 7.1, opacity: 0, translate: "0 8px", filter: "blur(4px)", easing: s.E.out }, { t: 7.5, opacity: 1, translate: "0 0", filter: "blur(0px)" }]);
+        s.win($("why"), 3.3, 5.3, { from: { opacity: 0, scale: 0.6, filter: "blur(6px)" }, to: { opacity: 1, scale: 1, filter: "blur(0px)" }, out: { opacity: 0, scale: 0.9, filter: "blur(8px)" }, ease: s.E.spring, i: 0.6, x: 0.5 });
+
+        // what was hiding in the gap, one layer deeper each time
+        ["c1", "c2", "c3"].forEach(function (id, k) {
+          var t = 7.0 + k * 0.6;
+          var el = $(id);
+          s.pop(el.querySelector(".tick"), t, { s: 0.2, d: 0.4 });
+          s.keys(el.querySelector(".stem"), [{ t: t + 0.05, scale: "1 0", easing: s.E.out }, { t: t + 0.4, scale: "1 1" }]);
+          s.keys(el.querySelector(".s-chip"), [
+            { t: t + 0.2, opacity: 0, translate: "0 -18px", filter: "blur(6px)", easing: s.E.spring },
+            { t: t + 0.75, opacity: 1, translate: "0 0", filter: "blur(0px)" },
+          ]);
+        });
+
+        // how you're wired
+        s.keys($("wired"), [{ t: 9.1, opacity: 0, translate: "0 14px", easing: s.E.out }, { t: 9.7, opacity: 1, translate: "0 0" }]);
+        ["w1", "w2", "w3"].forEach(function (id, k) {
+          s.at($(id), 9.8 + k * 0.25, { scale: "0 1" }, { scale: "1 1" }, 1.1, s.E.out);
+        });
+      });
+    </script>
+  </body>
+</html>
