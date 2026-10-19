@@ -4,3 +4,6 @@ wrangler.jsonc
 .gitignore
 node_modules
 .claude
+images_raw
+videos_raw
+hero-source

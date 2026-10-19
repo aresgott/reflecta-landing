@@ -13,8 +13,8 @@
     ".rt-overlay path{fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}" +
     ".rt-overlay .rt-glow{stroke-width:10;opacity:.16;filter:blur(6px)}" +
     ".rt-q{position:absolute;left:50%;top:50%;width:min(86vw,15em);margin:0;transform:translate(-50%,-50%);" +
-    "text-align:center;font-family:'Instrument Serif',Georgia,serif;font-size:clamp(34px,5vw,64px);line-height:1.04;" +
-    "letter-spacing:-.01em;color:#1b1714;text-shadow:0 0 18px #f6f2ec,0 0 36px #f6f2ec}";
+    "text-align:center;font-family:'Doppio One',Roboto,system-ui,sans-serif;font-weight:400;font-size:clamp(28px,4vw,52px);line-height:1.1;" +
+    "letter-spacing:-.025em;color:#1b1714;text-shadow:0 0 18px #f6f2ec,0 0 36px #f6f2ec}";
 
   function css() {
     if (document.getElementById("rt-style")) return;
