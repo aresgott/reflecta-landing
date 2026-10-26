@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Am I tired, or running on empty? · Burnout Risk · Reflecta</title>
+    <meta
+      name="description"
+      content="Burnout Risk by Reflecta: tell ordinary tiredness from something deeper, see what's draining you, and why rest isn't refilling you."
+    />
+    <meta name="theme-color" content="#f6f2ec" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <link rel="canonical" href="https://reflecta.app/assessments/burnout-risk/" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Reflecta" />
+    <meta property="og:url" content="https://reflecta.app/assessments/burnout-risk/" />
+    <meta property="og:title" content="Am I tired, or running on empty? · Reflecta" />
+    <meta property="og:description" content="Burnout Risk: tell ordinary tiredness from something deeper." />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:image" content="https://reflecta.app/assessments/burnout-risk/og.png" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Am I tired, or running on empty?" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Am I tired, or running on empty? · Reflecta" />
+    <meta name="twitter:description" content="Burnout Risk: tell ordinary tiredness from something deeper." />
+    <meta name="twitter:image" content="https://reflecta.app/assessments/burnout-risk/og.png" />
+    <meta name="twitter:image:alt" content="Am I tired, or running on empty?" />
+
+    <link rel="icon" href="/favicon.ico" sizes="48x48" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="apple-mobile-web-app-title" content="Reflecta" />
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebPage",
+          "@id": "https://reflecta.app/assessments/burnout-risk/",
+          "url": "https://reflecta.app/assessments/burnout-risk/",
+          "name": "Am I tired, or running on empty? · Reflecta",
+          "description": "Burnout Risk by Reflecta: tell ordinary tiredness from something deeper, see what's draining you, and why rest isn't refilling you.",
+          "isPartOf": {
+            "@type": "WebSite",
+            "@id": "https://reflecta.app/#website",
+            "name": "Reflecta",
+            "url": "https://reflecta.app/"
+          },
+          "about": {
+            "@type": "Thing",
+            "name": "Burnout Risk assessment"
+          },
+          "primaryImageOfPage": {
+            "@type": "ImageObject",
+            "url": "https://reflecta.app/assessments/burnout-risk/og.png",
+            "width": 1200,
+            "height": 630
+          },
+          "publisher": {
+            "@type": "Organization",
+            "@id": "https://reflecta.app/#org",
+            "name": "Reflecta",
+            "url": "https://reflecta.app/",
+            "logo": "https://reflecta.app/icon-512.png",
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "contactType": "customer support",
+              "email": "mohsen.ahmadinia@icloud.com"
+            }
+          }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Reflecta",
+              "item": "https://reflecta.app/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Library",
+              "item": "https://reflecta.app/#assessments"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "Burnout Risk",
+              "item": "https://reflecta.app/assessments/burnout-risk/"
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Doppio+One&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../assessment.css" />
+
+    <script>
+      // Open on the Reflecta thread unless motion is reduced or a moment is frozen (?t=).
+      try {
+        if (!matchMedia("(prefers-reduced-motion: reduce)").matches && !/[?&]t=/.test(location.search))
+          document.documentElement.classList.add("intro-on");
+      } catch (e) {}
+    </script>
+
+    <style>
+      /* ---------- scene: the week that drains you ---------- */
+
+      .a-hero {
+        --glow-a: rgba(242, 160, 132, 0.24);
+        --glow-b: rgba(232, 190, 120, 0.16);
+      }
+
+      /* the week strip: eight days, Monday to Monday, each with the level it ended on */
+
+      .week {
+        left: 28px;
+        top: 24px;
+        width: 504px;
+        height: 96px;
+        padding: 12px 14px;
+        display: grid;
+        grid-template-columns: repeat(8, 54px);
+        gap: 6px;
+        border-radius: 20px;
+      }
+
+      .day {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+        padding-top: 8px;
+        font-size: 12px;
+        font-weight: 500;
+        color: var(--ink-2);
+      }
+
+      .day.wkd {
+        color: var(--violet);
+      }
+
+      .day.again {
+        color: var(--coral);
+      }
+
+      .day .lv {
+        position: relative;
+        width: 14px;
+        height: 36px;
+        border-radius: 5px;
+        background: var(--paper-2);
+        overflow: hidden;
+      }
+
+      .day .lv i {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: var(--h);
+        border-radius: 5px;
+        background: linear-gradient(0deg, var(--coral), var(--violet-2) 70%, var(--violet));
+        background-size: 100% 36px;
+        background-position: bottom;
+        transform-origin: 50% 100%;
+      }
+
+      .cursor {
+        position: absolute;
+        left: 14px;
+        top: 10px;
+        width: 54px;
+        height: 74px;
+        border-radius: 14px;
+        border: 1.5px solid var(--violet);
+        background: rgba(107, 78, 240, 0.06);
+        translate: 420px 0;
+      }
+
+      /* the battery */
+
+      .charge {
+        left: 20px;
+        top: 112px;
+        width: 240px;
+        height: 300px;
+        border-radius: 50%;
+        background: radial-gradient(closest-side, rgba(154, 132, 255, 0.5), rgba(242, 160, 132, 0.28) 55%, transparent);
+        filter: blur(10px);
+      }
+
+      .battery {
+        left: 72px;
+        top: 162px;
+        width: 136px;
+        height: 200px;
+        border: 3px solid var(--ink);
+        border-radius: 30px;
+        background: var(--card);
+        box-shadow: var(--shadow-lg);
+      }
+
+      .battery .cap {
+        position: absolute;
+        left: 40px;
+        top: -13px;
+        width: 50px;
+        height: 10px;
+        border-radius: 5px 5px 0 0;
+        background: var(--ink);
+      }
+
+      .battery .fill {
+        position: absolute;
+        inset: 7px;
+        border-radius: 22px;
+        background: linear-gradient(0deg, var(--coral) 10%, var(--coral-2) 35%, var(--violet-2) 70%, var(--violet));
+        clip-path: inset(69% 0 0 0);
+      }
+
+      .battery .tick {
+        position: absolute;
+        left: 18px;
+        right: 18px;
+        height: 1px;
+        background: rgba(27, 23, 20, 0.08);
+      }
+
+      .bolt {
+        position: absolute;
+        left: 43px;
+        top: 52px;
+        width: 44px;
+        height: 80px;
+        filter: drop-shadow(0 4px 10px rgba(107, 78, 240, 0.35));
+      }
+
+      .level {
+        left: 60px;
+        top: 376px;
+        width: 160px;
+        text-align: center;
+      }
+
+      .level b {
+        font-family: var(--serif);
+        letter-spacing: -0.025em;
+        font-weight: 400;
+        font-size: 37.7px;
+        line-height: 1.08;
+        color: var(--ink);
+      }
+
+      .level i {
+        font-family: var(--serif);
+        font-weight: 400;
+        letter-spacing: -0.025em;
+        font-style: normal;
+        font-size: 21.3px;
+        color: var(--coral);
+      }
+
+      .level .s-label {
+        display: block;
+        margin-top: 4px;
+      }
+
+      /* what drains it */
+
+      .task {
+        gap: 9px;
+      }
+
+      .task i {
+        font-style: normal;
+        font-size: 14px;
+      }
+
+      .task b {
+        font-weight: 500;
+        color: var(--coral);
+        font-size: 12.5px;
+      }
+
+      #c1 {
+        left: 286px;
+        top: 176px;
+      }
+
+      #c2 {
+        left: 326px;
+        top: 230px;
+      }
+
+      #c3 {
+        left: 276px;
+        top: 284px;
+      }
+
+      #c4 {
+        left: 316px;
+        top: 338px;
+      }
+
+      #t1 {
+        left: 276px;
+        top: 208px;
+      }
+
+      #t2 {
+        left: 258px;
+        top: 300px;
+      }
+
+      /* two kinds of tired */
+
+      .compare {
+        left: 250px;
+        top: 150px;
+        width: 282px;
+        height: 258px;
+        padding: 16px 16px 14px;
+      }
+
+      .curve {
+        position: relative;
+        margin-top: 12px;
+      }
+
+      .curve + .curve {
+        margin-top: 10px;
+        padding-top: 10px;
+        border-top: 1px solid var(--line);
+      }
+
+      .curve h4 {
+        margin: 0;
+        font-size: 13.5px;
+        font-weight: 500;
+        color: var(--ink);
+      }
+
+      .curve h4 span {
+        font-weight: 400;
+        color: var(--muted);
+      }
+
+      .curve svg {
+        display: block;
+        width: 248px;
+        height: 60px;
+        margin-top: 6px;
+        overflow: visible;
+      }
+
+      .curve .full {
+        fill: none;
+        stroke: var(--line-2);
+        stroke-dasharray: 3 4;
+      }
+
+      .curve .ln {
+        fill: none;
+        stroke-width: 2.5;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-dasharray: 1;
+      }
+
+      .curve.ok .ln {
+        stroke: var(--violet-2);
+      }
+
+      .curve.low .ln {
+        stroke: var(--coral);
+      }
+
+      .curve .end {
+        fill: var(--coral);
+        stroke: var(--card);
+        stroke-width: 2.5;
+        transform-box: fill-box;
+        transform-origin: center;
+      }
+
+      .you {
+        position: absolute;
+        right: -2px;
+        top: 40px;
+        padding: 3px 9px;
+        border-radius: 999px;
+        background: var(--ink);
+        color: #f7f2ea;
+        font-size: 11px;
+        font-weight: 500;
+      }
+
+      /* where the risk sits */
+
+      .meter {
+        left: 40px;
+        top: 464px;
+        width: 480px;
+      }
+
+      .meter .track {
+        position: relative;
+        height: 6px;
+        border-radius: 3px;
+        background: linear-gradient(90deg, #c9b9f5, #f0c08a 55%, var(--coral));
+      }
+
+      .meter .knob {
+        position: absolute;
+        left: 62.5%;
+        top: 50%;
+        width: 18px;
+        height: 18px;
+        margin: -9px 0 0 -9px;
+        border-radius: 50%;
+        background: var(--card);
+        border: 2px solid var(--ink);
+        box-shadow: 0 4px 10px rgba(27, 23, 20, 0.25);
+      }
+
+      .meter .labels {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        margin-top: 12px;
+        font-size: 12px;
+        text-align: center;
+        color: var(--muted);
+      }
+
+      .meter .labels b {
+        color: var(--ink);
+        font-weight: 500;
+      }
+
+      .meter .s-label {
+        display: block;
+        margin-bottom: 12px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header class="site-header" id="site-header">
+      <div class="wrap header-inner">
+        <a class="brand-link" href="../../" aria-label="Reflecta home"><svg class="brand-mark" viewBox="180 240 644 580" aria-hidden="true"><defs><clipPath id="rfMark"><path d="M196 258 C262 312 320 345 382 356 C448 368 494 405 522 462 C552 520 592 541 642 541 C700 541 752 502 803 441 C806 438 808 440 808 445 L808 495 A306 306 0 0 1 196 495 Z" /></clipPath><linearGradient id="rfShine" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#fff" stop-opacity="0" /><stop offset="0.5" stop-color="#fff" stop-opacity="0.75" /><stop offset="1" stop-color="#fff" stop-opacity="0" /></linearGradient></defs><path class="mark" d="M196 258 C262 312 320 345 382 356 C448 368 494 405 522 462 C552 520 592 541 642 541 C700 541 752 502 803 441 C806 438 808 440 808 445 L808 495 A306 306 0 0 1 196 495 Z" /><g clip-path="url(#rfMark)"><rect class="shine" x="-300" y="150" width="200" height="760" fill="url(#rfShine)" /></g></svg>Reflecta</a>
+        <nav class="nav" aria-label="Primary">
+          <a href="../../#assessments">Library</a>
+          <a href="../../#how">How it works</a>
+          <a href="../../#journey">Journey</a>
+          <a href="../../#support">Support</a>
+          <a class="btn btn-primary" href="../../#assessments">Start reflecting</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="a-hero" aria-labelledby="title">
+        <div class="wrap a-hero-grid">
+          <div>
+            <p class="crumbs"><a href="../../#assessments">← Library</a><span class="cat">Stress</span></p>
+            <h1 id="title">Am I tired, <em>or running on empty?</em></h1>
+            <p class="lead">
+              You slept ten hours and still woke up exhausted. The weekend didn't fix it either.
+              <strong>Burnout Risk</strong> helps you tell ordinary tiredness from something deeper,
+              and shows you what's draining you.
+            </p>
+            <div class="ctas">
+              <a class="btn btn-primary" href="../../#how">See how Reflecta works <span class="arrow">→</span></a>
+              <a class="btn btn-ghost" href="../../#assessments">All questions</a>
+            </div>
+            <ul class="hero-meta">
+              <li>Reflecta Original</li>
+              <li>Solo or together</li>
+              <li>Not a diagnosis</li>
+            </ul>
+          </div>
+
+          <figure class="scene-fig">
+            <div class="stage-wrap">
+              <div class="stage" id="stage" aria-hidden="true">
+                <div class="scene">
+                  <div class="s-card week" id="week">
+                    <span class="cursor" id="cursor"></span>
+                    <div class="day">Mon<span class="lv"><i id="b0" style="--h: 84%"></i></span></div>
+                    <div class="day">Tue<span class="lv"><i id="b1" style="--h: 70%"></i></span></div>
+                    <div class="day">Wed<span class="lv"><i id="b2" style="--h: 55%"></i></span></div>
+                    <div class="day">Thu<span class="lv"><i id="b3" style="--h: 40%"></i></span></div>
+                    <div class="day">Fri<span class="lv"><i id="b4" style="--h: 24%"></i></span></div>
+                    <div class="day wkd">Sat<span class="lv"><i id="b5" style="--h: 30%"></i></span></div>
+                    <div class="day wkd">Sun<span class="lv"><i id="b6" style="--h: 38%"></i></span></div>
+                    <div class="day again">Mon<span class="lv"><i id="b7" style="--h: 31%"></i></span></div>
+                  </div>
+
+                  <div class="charge anim-only" id="charge"></div>
+
+                  <div class="battery" id="battery">
+                    <span class="cap"></span>
+                    <span class="fill" id="fill"></span>
+                    <span class="tick" style="top: 25%"></span>
+                    <span class="tick" style="top: 50%"></span>
+                    <span class="tick" style="top: 75%"></span>
+                    <svg class="bolt anim-only" id="bolt" viewBox="0 0 44 80">
+                      <path d="M27 2 L4 46 H21 L16 78 L40 32 H23 Z" fill="#fffdfa" stroke="#6b4ef0" stroke-width="2.5" stroke-linejoin="round" />
+                    </svg>
+                  </div>
+
+                  <div class="level" id="level"><b id="pct">31</b><i>%</i><span class="s-label">energy left</span></div>
+
+                  <div class="s-chip task anim-only" id="c1"><i>✉️</i>37 unread<b>−16%</b></div>
+                  <div class="s-chip task anim-only" id="c2"><i>📞</i>one more call<b>−14%</b></div>
+                  <div class="s-chip task anim-only" id="c3"><i>🙋</i>quick favor?<b>−15%</b></div>
+                  <div class="s-chip task anim-only" id="c4"><i>⏰</i>late deadline<b>−15%</b></div>
+
+                  <div class="s-thought anim-only" id="t1">slept 10 hours…</div>
+                  <div class="s-thought anim-only" id="t2">why am I still this tired?</div>
+
+                  <div class="s-card compare" id="compare">
+                    <span class="s-label">Two kinds of tired</span>
+                    <div class="curve ok">
+                      <h4>Tired <span>· recovers with rest</span></h4>
+                      <svg viewBox="0 0 248 60">
+                        <path class="full" d="M0 8 H248" />
+                        <path class="ln" id="lnOk" pathLength="1" d="M2 10 L88 42 C100 46 108 12 124 10 L212 42 C224 46 232 12 246 10" />
+                      </svg>
+                    </div>
+                    <div class="curve low">
+                      <h4>Running on empty <span>· doesn't refill</span></h4>
+                      <svg viewBox="0 0 248 60">
+                        <path class="full" d="M0 8 H248" />
+                        <path class="ln" id="lnLow" pathLength="1" d="M2 10 L88 42 C100 46 108 32 124 30 L212 54 C224 57 232 50 244 48" />
+                        <circle class="end" id="lnEnd" cx="244" cy="48" r="5" />
+                      </svg>
+                      <span class="you" id="you">your week</span>
+                    </div>
+                  </div>
+
+                  <div class="meter" id="meter">
+                    <span class="s-label">Burnout risk</span>
+                    <div class="track"><span class="knob" id="knob"></span></div>
+                    <div class="labels"><span>Low</span><span>Moderate</span><b>Elevated</b><span>High</span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <figcaption class="scene-cap">
+              <span data-t0="0.3" data-t1="3.2">Every day takes a little more.</span>
+              <span data-t0="3.4" data-t1="5.5">You tell yourself the weekend will fix it.</span>
+              <span data-t0="5.8" data-t1="8.5">It doesn't. Monday starts low again.</span>
+              <span data-t0="9.0" data-t1="12.4">Burnout Risk shows you <em>what's draining you.</em></span>
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="section section-alt" aria-labelledby="familiar">
+        <div class="wrap">
+          <div class="section-head">
+            <p class="kicker reveal">Sounds familiar?</p>
+            <h2 class="reveal d1" id="familiar">Rest stops <em>refilling you.</em></h2>
+          </div>
+          <div class="moments">
+            <div class="moment reveal"><q>But I slept so long.</q><p>You wake up already tired, even after a full night.</p></div>
+            <div class="moment reveal d1"><q>Just one more thing.</q><p>The list refills faster than you can clear it, and saying no feels impossible.</p></div>
+            <div class="moment reveal d2"><q>Honestly, whatever.</q><p>Things you used to care about start to feel distant, or a little pointless.</p></div>
+            <div class="moment reveal d3"><q>What did I even do today?</q><p>You're busy from morning to night and still feel like nothing moved.</p></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="looks">
+        <div class="wrap">
+          <div class="section-head">
+            <p class="kicker reveal">What it looks at</p>
+            <h2 class="reveal d1" id="looks">What drains you, <em>and what doesn't refill.</em></h2>
+          </div>
+          <div class="dims">
+            <div class="dim reveal"><span class="ix">01</span><div><h3>Exhaustion</h3><p>How depleted you feel, in body and mind, at the end of an ordinary day.</p></div></div>
+            <div class="dim reveal d1"><span class="ix">02</span><div><h3>Detachment</h3><p>Whether you've started pulling back, going numb, or turning cynical about what used to matter.</p></div></div>
+            <div class="dim reveal"><span class="ix">03</span><div><h3>Sense of accomplishment</h3><p>Whether your effort still feels like it adds up to something.</p></div></div>
+            <div class="dim reveal d1"><span class="ix">04</span><div><h3>Recovery</h3><p>How much your evenings, weekends, and time off actually give you back.</p></div></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-alt" aria-labelledby="get">
+        <div class="wrap get-grid">
+          <div>
+            <p class="kicker reveal">What you get back</p>
+            <h2 class="reveal d1" id="get">Where your energy goes, <em>in plain words.</em></h2>
+            <ul class="get-list">
+              <li class="reveal"><span><b>A headline insight</b> that names what's going on for you.</span></li>
+              <li class="reveal d1"><span><b>What kept showing up</b> across your answers.</span></li>
+              <li class="reveal d2"><span><b>Where to put your energy next</b>, so it's useful, not just interesting.</span></li>
+              <li class="reveal d3"><span><b>Your Journey</b>, so you can come back and see how it shifts.</span></li>
+            </ul>
+          </div>
+          <div class="s-dark insight-card reveal d1">
+            <span class="k">Example insight · Burnout Risk</span>
+            <h3>You're giving more than your rest gives back.</h3>
+            <div class="chips"><span>weekends don't refill you</span><span>always on for others</span><span>still cares a lot</span></div>
+            <div class="bars">
+              <div class="bar">Exhaustion<i style="--v: 82%"></i></div>
+              <div class="bar">Detachment<i style="--v: 56%"></i></div>
+              <div class="bar">Accomplishment<i style="--v: 44%"></i></div>
+              <div class="bar">Recovery<i style="--v: 32%"></i></div>
+            </div>
+            <p class="note">Illustrative example. Your insight is built from your own answers.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="a-closing" aria-labelledby="closing">
+        <div class="wrap reveal">
+          <h2 id="closing">Notice the drain <em>before it empties you.</em></h2>
+          <p class="lead">Take Burnout Risk in Reflecta, on your own or with someone who shares the load.</p>
+          <div class="ctas">
+            <a class="btn btn-primary" href="../../#how">See how Reflecta works <span class="arrow">→</span></a>
+            <a class="btn btn-ghost" href="../../#assessments">Back to the library</a>
+          </div>
+          <p class="disclaimer">Reflecta offers assistive, personal insight. It isn't a medical device and doesn't diagnose or treat any condition.</p>
+        </div>
+      </section>
+
+      <section class="more" aria-labelledby="more">
+        <div class="wrap">
+          <h2 class="reveal" id="more">Other questions people <em>bring.</em></h2>
+          <div class="more-grid">
+            <a class="reveal" href="../attachment-style/"><span class="q">Why do I need them to text back so fast?</span><span class="n">Attachment Style →</span></a>
+            <a class="reveal d1" href="../emotional-needs/"><span class="q">What do I actually need from the people I love?</span><span class="n">Emotional Needs →</span></a>
+            <a class="reveal d2" href="../overthinking-patterns/"><span class="q">Why can't my mind just switch off?</span><span class="n">Overthinking Patterns →</span></a>
+            <a class="reveal d3" href="../shadow-traits/"><span class="q">Why do I react before I can think?</span><span class="n">Shadow Traits →</span></a>
+            <a class="reveal d3" href="../love-languages/"><span class="q">How do I show love, and how do I want it back?</span><span class="n">Love Languages →</span></a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="wrap footer-grid">
+        <div class="footer-brand">
+          <div class="name">Reflecta</div>
+          <p>Honest questions. A clearer you.</p>
+        </div>
+        <div class="footer-links" aria-label="Footer">
+          <a href="../../#assessments">Library</a>
+          <a href="../../#how">How it works</a>
+          <a href="../../#support">Support</a>
+          <a href="../../#privacy">Privacy</a>
+          <a href="../../#terms">Terms</a>
+        </div>
+        <p class="footer-meta">© <span id="year"></span> Reflecta. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="../../thread.js"></script>
+    <script src="../assessment.js"></script>
+    <script>
+      /* Scene (13 s loop): the week runs Mon → Sun and the battery drains as tasks land on it ·
+       * the weekend recharges it, but only to 38% · Monday starts low again · two kinds of tired
+       * are drawn side by side and your week matches "running on empty" · the risk meter settles
+       * on Elevated. */
+      Scene(13, function (s) {
+        var $ = function (id) {
+          return document.getElementById(id);
+        };
+        var DAY = 1.0; // one day per second, Monday starts at 0.6
+        function day(k) {
+          return 0.6 + k * DAY;
+        }
+
+        s.pop($("week"), 0.1, { s: 0.94, d: 0.7 });
+        s.pop($("battery"), 0.25, { s: 0.85, d: 0.7 });
+        s.keys($("level"), [{ t: 0.4, opacity: 0, translate: "0 10px", easing: s.E.out }, { t: 0.9, opacity: 1, translate: "0 0" }]);
+
+        // the day cursor steps along the week; each day's bar fills in as the day ends
+        var cur = [{ t: 0.35, opacity: 0, translate: "0 0" }, { t: 0.6, opacity: 1, translate: "0 0" }];
+        for (var k = 1; k < 8; k++) {
+          cur.push({ t: day(k) - 0.3, translate: (k - 1) * 60 + "px 0", easing: s.E.inout });
+          cur.push({ t: day(k), translate: k * 60 + "px 0" });
+        }
+        s.keys($("cursor"), cur);
+        var ends = [1.65, 2.65, 3.65, 4.65, 5.6, 6.6, 7.6, 8.3];
+        ends.forEach(function (t, k) {
+          s.keys($("b" + k), [{ t: t - 0.3, scale: "1 0", easing: s.E.out }, { t: t + 0.2, scale: "1 1" }]);
+        });
+
+        // the battery level: drops as each task lands, a slow weekend climb that stalls at 38%
+        var lvKeys = [[0, 100], [1.35, 100], [1.65, 84], [2.35, 84], [2.65, 70], [3.35, 70], [3.65, 55], [4.35, 55], [4.65, 40], [4.8, 40], [5.6, 24], [5.9, 24], [7.4, 38], [7.8, 38], [8.3, 31]];
+        s.keys(
+          $("fill"),
+          lvKeys.map(function (p) {
+            return { t: p[0], clipPath: "inset(" + (100 - p[1]) + "% 0 0 0)", easing: s.E.inout };
+          })
+        );
+        var pct = $("pct");
+        s.track(function (t) {
+          var v = lvKeys[lvKeys.length - 1][1];
+          for (var i = 1; i < lvKeys.length; i++) {
+            if (t < lvKeys[i][0]) {
+              var a = lvKeys[i - 1];
+              var b = lvKeys[i];
+              var u = (t - a[0]) / (b[0] - a[0]);
+              v = a[1] + (b[1] - a[1]) * u * u * (3 - 2 * u);
+              break;
+            }
+          }
+          var str = String(Math.round(v));
+          if (pct._v !== str) {
+            pct.textContent = str;
+            pct._v = str;
+          }
+        });
+
+        // what drains it: each task pops in, then gets pulled into the battery
+        ["c1", "c2", "c3", "c4"].forEach(function (id, k) {
+          var t = day(k) + 0.1;
+          var el = $(id);
+          var dx = 140 - (el.offsetLeft + el.offsetWidth / 2);
+          var dy = 250 - (el.offsetTop + el.offsetHeight / 2);
+          s.keys(el, [
+            { t: t, opacity: 0, scale: 0.6, translate: "0 0", filter: "blur(6px)", easing: s.E.spring },
+            { t: t + 0.45, opacity: 1, scale: 1, translate: "0 0", filter: "blur(0px)", easing: s.E.inq },
+            { t: t + 0.7, opacity: 1, scale: 1, translate: "0 0", filter: "blur(0px)", easing: s.E.inq },
+            { t: t + 1.0, opacity: 0, scale: 0.3, translate: dx + "px " + dy + "px", filter: "blur(4px)" },
+          ]);
+        });
+        s.keys($("battery"), [{ t: 4.6, rotate: "0deg" }, { t: 5.0, rotate: "-1deg" }, { t: 5.3, rotate: "1deg" }, { t: 5.6, rotate: "0deg" }]);
+
+        // the weekend: a recharge that doesn't take
+        s.keys($("charge"), [
+          { t: 5.7, opacity: 0, scale: 0.8, easing: s.E.out },
+          { t: 6.2, opacity: 1, scale: 1 },
+          { t: 6.7, opacity: 0.55, scale: 0.96 },
+          { t: 7.2, opacity: 0.9, scale: 1 },
+          { t: 7.7, opacity: 0, scale: 0.9 },
+        ]);
+        s.win($("bolt"), 5.8, 7.4, { from: { opacity: 0, scale: 0.5 }, to: { opacity: 1, scale: 1 }, out: { opacity: 0, scale: 0.8 }, ease: s.E.spring, i: 0.5, x: 0.35 });
+        var think = { from: { opacity: 0, scale: 0.6, filter: "blur(6px)" }, to: { opacity: 1, scale: 1, filter: "blur(0px)" }, out: { opacity: 0, scale: 0.9, filter: "blur(8px)" }, ease: s.E.spring, i: 0.6, x: 0.4 };
+        s.win($("t1"), 6.0, 7.5, think);
+        s.win($("t2"), 7.7, 8.3, think);
+
+        // two kinds of tired, and which one is yours
+        s.keys($("compare"), [{ t: 8.75, opacity: 0, translate: "0 16px", filter: "blur(6px)", easing: s.E.out }, { t: 9.3, opacity: 1, translate: "0 0", filter: "blur(0px)" }]);
+        s.at($("lnOk"), 9.1, { strokeDashoffset: 1 }, { strokeDashoffset: 0 }, 1.0, s.E.out);
+        s.at($("lnLow"), 9.5, { strokeDashoffset: 1 }, { strokeDashoffset: 0 }, 1.1, s.E.out);
+        s.pop($("lnEnd"), 10.5, { s: 0.2 });
+        s.pop($("you"), 10.6, { s: 0.7 });
+
+        // where it sits
+        s.keys($("meter"), [{ t: 10.2, opacity: 0, translate: "0 14px", easing: s.E.out }, { t: 10.7, opacity: 1, translate: "0 0" }]);
+        s.at($("knob"), 10.8, { translate: "-252px 0" }, { translate: "0 0" }, 1.1, s.E.spring);
+      });
+    </script>
+  </body>
+</html>
